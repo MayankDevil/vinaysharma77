@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Strings</h2>
+            <p>The string in PL/SQL is actually a sequence of characters with an optional size specification. The characters could be numeric, letters, blank, special characters or a combination of all. PL/SQL offers three kinds of strings −</p>
+            <ul>
+                <li>Fixed-length strings − In such strings, programmers specify the length while declaring the string. The string is right-padded with spaces to the length so specified.</li>
+                <li>Variable-length strings − In such strings, a maximum length up to 32,767, for the string is specified and no padding takes place.</li>
+                <li>Character large objects (CLOBs) − These are variable-length strings that can be up to 128 terabytes.</li>
+            </ul>
+            <p>PL/SQL strings could be either variables or literals. A string literal is enclosed within quotation marks. For example,<br>
+            'This is a string literal.' Or 'hello world'<br>
+            To include a single quote inside a string literal, you need to type two single quotes next to one another. For example,<br>
+            'this isn''t what it looks like'</p>
+            <p>Declaring String Variables</p>
+            <p>Oracle database provides numerous string datatypes, such as CHAR, NCHAR, VARCHAR2, NVARCHAR2, CLOB, and NCLOB. The datatypes prefixed with an 'N' are 'national character set' datatypes, that store Unicode character data.
+                If you need to declare a variable-length string, you must provide the maximum length of that string. For example, the VARCHAR2 data type. The following example illustrates declaring and using some string variables −<br>
+                DECLARE <br>
+                   name varchar2(20); <br>
+                   company varchar2(30); <br>
+                   introduction clob; <br>
+                   choice char(1); <br>
+                BEGIN <br>
+                   name := 'John Smith'; <br>
+                   company := 'Infotech'; <br>
+                   introduction := ' Hello! I''m John Smith from Infotech.'; <br>
+                   choice := 'y'; <br>
+                   IF choice = 'y' THEN <br>
+                      dbms_output.put_line(name); <br>
+                      dbms_output.put_line(company); <br>
+                      dbms_output.put_line(introduction); <br>
+                   END IF; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                John Smith <br>
+                Infotech<br>
+                Hello! I'm John Smith from Infotech.  <br>
+                PL/SQL procedure successfully completed<br>
+                To declare a fixed-length string, use the CHAR datatype. Here you do not have to specify a maximum length for a fixed-length variable. If you leave off the length constraint, Oracle Database automatically uses a maximum length required. The following two declarations are identical −<br>
+                red_flag CHAR(1) := 'Y'; <br>
+                 red_flag CHAR   := 'Y';</p>
+            <p>PL/SQL String Functions and Operators</p>
+            <p>PL/SQL offers the concatenation operator (||) for joining two strings. The following table provides the string functions provided by PL/SQL −</p>
+            <p>ASCII(x);<br>
+            Returns the ASCII value of the character x.</p>
+            <p>CHR(x);<br>
+                Returns the character with the ASCII value of x.</p>
+            <p>CONCAT(x, y);<br>
+                Concatenates the strings x and y and returns the appended string.</p>
+            <p>INITCAP(x);<br>
+                Converts the initial letter of each word in x to uppercase and returns that string.</p>
+            <p>INSTR(x, find_string [, start] [, occurrence]);<br>
+                Searches for find_string in x and returns the position at which it occurs.</p>
+            <p>INSTRB(x);<br>
+                Returns the location of a string within another string, but returns the value in bytes.</p>
+            <p>LENGTH(x);<br>
+                Returns the number of characters in x.</p>
+            <p>LENGTHB(x);<br>
+                Returns the length of a character string in bytes for single byte character set.</p>
+            <p>LOWER(x);<br>
+                Converts the letters in x to lowercase and returns that string.</p>
+            <p>LPAD(x, width [, pad_string]) ;<br>
+                Pads x with spaces to the left, to bring the total length of the string up to width characters.</p>
+            <p>LTRIM(x [, trim_string]);<br>
+                Trims characters from the left of x.</p>
+            <p>NANVL(x, value);<br>
+                Returns value if x matches the NaN special value (not a number), otherwise x is returned.</p>
+            <p>NLS_INITCAP(x);<br>
+                Same as the INITCAP function except that it can use a different sort method as specified by NLSSORT.</p>
+            <p>NLS_LOWER(x) ;<br>
+                Same as the LOWER function except that it can use a different sort method as specified by NLSSORT.</p>
+            <p>NLS_UPPER(x);<br>
+                Same as the UPPER function except that it can use a different sort method as specified by NLSSORT.</p>
+            <p>NLSSORT(x);<br>
+                Changes the method of sorting the characters. Must be specified before any NLS function; otherwise, the default sort will be used.</p>
+            <p>NVL(x, value);<br>
+                Returns value if x is null; otherwise, x is returned.</p>
+            <p>NVL2(x, value1, value2);<br>
+                Returns value1 if x is not null; if x is null, value2 is returned.</p>
+            <p>REPLACE(x, search_string, replace_string);<br>
+                Searches x for search_string and replaces it with replace_string.</p>
+            <p>RPAD(x, width [, pad_string]);<br>
+                Pads x to the right.</p>
+            <p>RTRIM(x [, trim_string]);<br>
+                Trims x from the right.</p>
+            <p>SOUNDEX(x) ;<br>
+                Returns a string containing the phonetic representation of x.</p>
+            <p>SUBSTR(x, start [, length]);<br>
+                Returns a substring of x that begins at the position specified by start. An optional length for the substring may be supplied.</p>
+            <p>SUBSTRB(x);<br>
+                Same as SUBSTR except that the parameters are expressed in bytes instead of characters for the single-byte character systems.</p>
+            <p>TRIM([trim_char FROM) x);<br>
+                Trims characters from the left and right of x.</p>
+            <p>UPPER(x);<br>
+                Converts the letters in x to uppercase and returns that string.</p>
+            <p>Let us now work out on a few examples to understand the concept −</p>
+            <p>Example 1</p>
+            <p>DECLARE <br>
+                greetings varchar2(11) := 'hello world'; <br>
+             BEGIN <br>
+                dbms_output.put_line(UPPER(greetings)); <br>
+                dbms_output.put_line(LOWER(greetings)); <br>
+                dbms_output.put_line(INITCAP(greetings)); <br>
+                /* retrieve the first character in the string */ <br>
+                dbms_output.put_line ( SUBSTR (greetings, 1, 1)); <br>
+                /* retrieve the last character in the string */ <br>
+                dbms_output.put_line ( SUBSTR (greetings, -1, 1)); <br>
+                /* retrieve five characters,  <br>
+                   starting from the seventh position. */ <br>
+                dbms_output.put_line ( SUBSTR (greetings, 7, 5)); <br>
+                /* retrieve the remainder of the string, <br>
+                   starting from the second position. */ <br>
+                dbms_output.put_line ( SUBSTR (greetings, 2)); <br>
+                /* find the location of the first "e" */ <br>
+                dbms_output.put_line ( INSTR (greetings, 'e')); <br>
+             END; <br>
+             / <br>
+             When the above code is executed at the SQL prompt, it produces the following result −<br>
+             HELLO WORLD <br>
+             hello world <br>
+             Hello World <br>
+             h <br>
+             d <br>
+             World <br>
+             ello World<br> 
+             2  <br>
+             PL/SQL procedure successfully completed.</p>
+            <p>Example 2</p>
+            <p>DECLARE <br>
+                greetings varchar2(30) := '......Hello World.....'; <br>
+             BEGIN <br>
+                dbms_output.put_line(RTRIM(greetings,'.')); <br>
+                dbms_output.put_line(LTRIM(greetings, '.')); <br>
+                dbms_output.put_line(TRIM( '.' from greetings)); <br>
+             END; <br>
+             /<br>
+             When the above code is executed at the SQL prompt, it produces the following result −<br>
+             ......Hello World  <br>
+             Hello World..... <br>
+             Hello World  <br>
+             PL/SQL procedure successfully completed. </p>
+            <a href="plsqlloops.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlarrays.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

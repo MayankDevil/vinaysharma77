@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Loops</h2>
+            <p>In this chapter, we will discuss Loops in PL/SQL. There may be a situation when you need to execute a block of code several number of times. In general, statements are executed sequentially: The first statement in a function is executed first, followed by the second, and so on.
+                Programming languages provide various control structures that allow for more complicated execution paths.</p>
+            <p>PL/SQL Basic LOOP</p>
+            <p>In this loop structure, sequence of statements is enclosed between the LOOP and the END LOOP statements. At each iteration, the sequence of statements is executed and then control resumes at the top of the loop.</p>
+            <p>PL/SQL WHILE LOOP</p>
+            <p>Repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.</p>
+            <p>PL/SQL FOR LOOP</p>
+            <p>Execute a sequence of statements multiple times and abbreviates the code that manages the loop variable.</p>
+            <p>Nested loops in PL/SQL</p>
+            <p>You can use one or more loop inside any another basic loop, while, or for loop.</p>
+            <p>Labeling a PL/SQL Loop</p>
+            <p>PL/SQL loops can be labeled. The label should be enclosed by double angle brackets (<< and >>) and appear at the beginning of the LOOP statement. The label name can also appear at the end of the LOOP statement. You may use the label in the EXIT statement to exit from the loop.<br>
+                The following program illustrates the concept −<br>
+                DECLARE <br>
+                   i number(1); <br>
+                   j number(1); <br>
+                BEGIN <br>
+                   &lt;&lt; outer_loop &gt;&gt; <br>
+                   FOR i IN 1..3 LOOP <br>
+                      &lt;&lt; inner_loop &gt;&gt;<br> 
+                      FOR j IN 1..3 LOOP <br>
+                         dbms_output.put_line('i is: '|| i || ' and j is: ' || j); <br>
+                      END loop inner_loop; <br>
+                   END loop outer_loop; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                i is: 1 and j is: 1 <br>
+                i is: 1 and j is: 2 <br>
+                i is: 1 and j is: 3 <br>
+                i is: 2 and j is: 1 <br>
+                i is: 2 and j is: 2 <br>
+                i is: 2 and j is: 3 <br>
+                i is: 3 and j is: 1 <br>
+                i is: 3 and j is: 2 <br>
+                i is: 3 and j is: 3  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>The Loop Control Statements</p>
+            <p>Loop control statements change execution from its normal sequence. When execution leaves a scope, all automatic objects that were created in that scope are destroyed.
+                PL/SQL supports the following control statements. Labeling loops also help in taking the control outside a loop. </p>
+            <p>	EXIT statement</p>
+            <p>The Exit statement completes the loop and control passes to the statement immediately after the END LOOP.</p>
+            <p>CONTINUE statement</p>
+            <p>Causes the loop to skip the remainder of its body and immediately retest its condition prior to reiterating.</p>
+            <p>GOTO statement</p>
+            <p>Transfers control to the labeled statement. Though it is not advised to use the GOTO statement in your program.</p>
+            <a href="plsqlconditions.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlstrings.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

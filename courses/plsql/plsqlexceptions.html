@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Exceptions</h2>
+            <p>In this chapter, we will discuss Exceptions in PL/SQL. An exception is an error condition during a program execution. PL/SQL supports programmers to catch such conditions using EXCEPTION block in the program and an appropriate action is taken against the error condition. There are two types of exceptions −</p>
+            <ul>
+                <li>System-defined exceptions</li>
+                <li>User-defined exceptions</li>
+            </ul>
+            <p>Syntax for Exception Handling</p>
+            <p>The general syntax for exception handling is as follows. Here you can list down as many exceptions as you can handle. The default exception will be handled using WHEN others THEN −<br>
+                DECLARE<br> 
+                   &lt;declarations section&gt;<br> 
+                BEGIN <br>
+                   &lt;executable command(s)&gt;<br> 
+                EXCEPTION <br>
+                   &lt;exception handling goes here &gt;<br>
+                   WHEN exception1 THEN  <br>
+                      exception1-handling-statements  <br>
+                   WHEN exception2  THEN  <br>
+                      exception2-handling-statements  <br>
+                   WHEN exception3 THEN  <br>
+                      exception3-handling-statements <br>
+                   ........ <br>
+                   WHEN others THEN <br>
+                      exception3-handling-statements <br>
+                END;</p>
+            <p>Example</p>
+            <p>Let us write a code to illustrate the concept. We will be using the CUSTOMERS table we had created and used in the previous chapters −<br>
+                DECLARE <br>
+                   c_id customers.id%type := 8; <br>
+                   c_name customerS.Name%type; <br>
+                   c_addr customers.address%type; <br>
+                BEGIN <br>
+                   SELECT  name, address INTO  c_name, c_addr <br>
+                   FROM customers <br>
+                   WHERE id = c_id;  <br>
+                   DBMS_OUTPUT.PUT_LINE ('Name: '||  c_name); <br>
+                   DBMS_OUTPUT.PUT_LINE ('Address: ' || c_addr); <br>
+                EXCEPTION <br>
+                   WHEN no_data_found THEN <br>
+                      dbms_output.put_line('No such customer!'); <br>
+                   WHEN others THEN <br>
+                      dbms_output.put_line('Error!'); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                No such customer!  <br>
+                PL/SQL procedure successfully completed. <br>
+                The above program displays the name and address of a customer whose ID is given. Since there is no customer with ID value 8 in our database, the program raises the run-time exception NO_DATA_FOUND, which is captured in the EXCEPTION block.</p>
+            <p>Raising Exceptions</p>
+            <p>Exceptions are raised by the database server automatically whenever there is any internal database error, but exceptions can be raised explicitly by the programmer by using the command RAISE. Following is the simple syntax for raising an exception −<br>
+                DECLARE<br> 
+                   exception_name EXCEPTION; <br>
+                BEGIN <br>
+                   IF condition THEN <br>
+                      RAISE exception_name; <br>
+                   END IF; <br>
+                EXCEPTION <br>
+                   WHEN exception_name THEN <br>
+                   statement; <br>
+                END; <br>
+                You can use the above syntax in raising the Oracle standard exception or any user-defined exception. In the next section, we will give you an example on raising a user-defined exception. You can raise the Oracle standard exceptions in a similar way.</p>
+            <p>User-defined Exceptions</p>
+            <p>PL/SQL allows you to define your own exceptions according to the need of your program. A user-defined exception must be declared and then raised explicitly, using either a RAISE statement or the procedure DBMS_STANDARD.RAISE_APPLICATION_ERROR.<br>
+                The syntax for declaring an exception is −<br>
+                DECLARE <br>
+                   my-exception EXCEPTION; </p>
+            <p>Example</p>
+            <p>The following example illustrates the concept. This program asks for a customer ID, when the user enters an invalid ID, the exception invalid_id is raised.<br>
+                DECLARE<br> 
+                   c_id customers.id%type := &cc_id; <br>
+                   c_name customerS.Name%type; <br>
+                   c_addr customers.address%type;  <br>
+                   -- user defined exception <br>
+                   ex_invalid_id  EXCEPTION; <br>
+                BEGIN <br>
+                   IF c_id &lt;= 0 THEN <br>
+                      RAISE ex_invalid_id; <br>
+                   ELSE <br>
+                      SELECT  name, address INTO  c_name, c_addr <br>
+                      FROM customers <br>
+                      WHERE id = c_id;<br>
+                      DBMS_OUTPUT.PUT_LINE ('Name: '||  c_name);  <br>
+                      DBMS_OUTPUT.PUT_LINE ('Address: ' || c_addr); <br>
+                   END IF; <br>
+                EXCEPTION <br>
+                   WHEN ex_invalid_id THEN <br>
+                      dbms_output.put_line('ID must be greater than zero!'); <br>
+                   WHEN no_data_found THEN <br>
+                      dbms_output.put_line('No such customer!'); <br>
+                   WHEN others THEN <br>
+                      dbms_output.put_line('Error!');  <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Enter value for cc_id: -6 (let's enter a value -6) <br>
+                old  2: c_id customers.id%type := &cc_id; <br>
+                new  2: c_id customers.id%type := -6; <br>
+                ID must be greater than zero! <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Pre-defined Exceptions</p>
+            <p>PL/SQL provides many pre-defined exceptions, which are executed when any database rule is violated by a program. For example, the predefined exception NO_DATA_FOUND is raised when a SELECT INTO statement returns no rows.</p>
+            <a href="plsqlrecords.html" class="next">&lt; Previous Page</a>
+            <a href="plsqltriggers.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

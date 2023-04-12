@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Arrays</h2>
+            <p>In this chapter, we will discuss arrays in PL/SQL. The PL/SQL programming language provides a data structure called the VARRAY, which can store a fixed-size sequential collection of elements of the same type. A varray is used to store an ordered collection of data, however it is often better to think of an array as a collection of variables of the same type.
+                All varrays consist of contiguous memory locations. The lowest address corresponds to the first element and the highest address to the last element.An array is a part of collection type data and it stands for variable-size arrays. We will study other collection types in a later chapter 'PL/SQL Collections'.
+                Each element in a varray has an index associated with it. It also has a maximum size that can be changed dynamically.</p>
+            <p>Creating a Varray Type</p>
+            <p>A varray type is created with the CREATE TYPE statement. You must specify the maximum size and the type of elements stored in the varray.
+                The basic syntax for creating a VARRAY type at the schema level is −<br>
+                CREATE OR REPLACE TYPE varray_type_name IS VARRAY(n) of &lt;element_type&gt;<br>
+                Where,<br>
+                varray_type_name is a valid attribute name,<br>
+                n is the number of elements (maximum) in the varray,<br>
+                element_type is the data type of the elements of the array.<br>
+                Maximum size of a varray can be changed using the ALTER TYPE statement.<br>
+                For example,<br>
+                CREATE Or REPLACE TYPE namearray AS VARRAY(3) OF VARCHAR2(10); <br>
+                / <br>
+                Type created.<br>
+                The basic syntax for creating a VARRAY type within a PL/SQL block is −<br>
+                TYPE varray_type_name IS VARRAY(n) of &lt;element_type&gt;<br>
+                For example −<br>
+                TYPE namearray IS VARRAY(5) OF VARCHAR2(10); <br>
+                Type grades IS VARRAY(5) OF INTEGER;<br>
+                Let us now work out on a few examples to understand the concept −</p>
+            <p>Example 1</p>
+            <p>The following program illustrates the use of varrays −<br>
+                DECLARE <br>
+                   type namesarray IS VARRAY(5) OF VARCHAR2(10); <br>
+                   type grades IS VARRAY(5) OF INTEGER; <br>
+                   names namesarray; <br>
+                   marks grades; <br>
+                   total integer; <br>
+                BEGIN <br>
+                   names := namesarray('Kavita', 'Pritam', 'Ayan', 'Rishav', 'Aziz'); <br>
+                   marks:= grades(98, 97, 78, 87, 92); <br>
+                   total := names.count; <br>
+                   dbms_output.put_line('Total '|| total || ' Students'); <br>
+                   FOR i in 1 .. total LOOP <br>
+                      dbms_output.put_line('Student: ' || names(i) || ' <br>
+                      Marks: ' || marks(i)); <br>
+                   END LOOP; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Total 5 Students <br>
+                Student: Kavita  Marks: 98 <br>
+                Student: Pritam  Marks: 97 <br>
+                Student: Ayan  Marks: 78 <br>
+                Student: Rishav  Marks: 87 <br>
+                Student: Aziz  Marks: 92 <br>
+                PL/SQL procedure successfully completed. <br>
+                Please note −</p>
+            <ul>
+                <li>In Oracle environment, the starting index for varrays is always 1.</li>
+                <li>You can initialize the varray elements using the constructor method of the varray type, which has the same name as the varray.</li>
+                <li>Varrays are one-dimensional arrays.</li>
+                <li>A varray is automatically NULL when it is declared and must be initialized before its elements can be referenced.</li>
+            </ul>
+            <p>Example 2</p>
+            <p>Elements of a varray could also be a %ROWTYPE of any database table or %TYPE of any database table field. The following example illustrates the concept.
+                We will use the CUSTOMERS table stored in our database as −<br>
+                Select * from customers;  </p>
+            <p>Following example makes the use of cursor, which you will study in detail in a separate chapter.<br>
+                DECLARE <br>
+                   CURSOR c_customers is <br>
+                   SELECT  name FROM customers; <br>
+                   type c_list is varray (6) of customers.name%type; <br>
+                   name_list c_list := c_list(); <br>
+                   counter integer :=0; <br>
+                BEGIN <br>
+                   FOR n IN c_customers LOOP <br>
+                      counter := counter + 1; <br>
+                      name_list.extend; <br>
+                      name_list(counter)  := n.name; <br>
+                      dbms_output.put_line('Customer('||counter ||'):'||name_list(counter)); <br>
+                   END LOOP; <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Customer(1): Ramesh  <br>
+                Customer(2): Khilan  <br>
+                Customer(3): kaushik    <br> 
+                Customer(4): Chaitali  <br>
+                Customer(5): Hardik  <br>
+                Customer(6): Komal  <br>
+                PL/SQL procedure successfully completed. </p>
+            <a href="plsqlstrings.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlprocedures.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

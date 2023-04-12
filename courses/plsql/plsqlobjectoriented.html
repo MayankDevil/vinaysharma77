@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Object Oriented</h2>
+            <p>In this chapter, we will discuss Object-Oriented PL/SQL. PL/SQL allows defining an object type, which helps in designing object-oriented database in Oracle. An object type allows you to create composite types. Using objects allow you to implement real world objects with specific structure of data and methods for operating it. Objects have attributes and methods. Attributes are properties of an object and are used for storing an object's state; and methods are used for modeling its behavior.
+                Objects are created using the CREATE [OR REPLACE] TYPE statement. Following is an example to create a simple address object consisting of few attributes −<br>
+                CREATE OR REPLACE TYPE address AS OBJECT <br>
+                (house_no varchar2(10), <br>
+                 street varchar2(30), <br>
+                 city varchar2(20), <br>
+                 state varchar2(10), <br>
+                 pincode varchar2(10) <br>
+                ); <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type created. <br>
+                Let's create one more object customer where we will wrap attributes and methods together to have object-oriented feeling −<br>
+                CREATE OR REPLACE TYPE customer AS OBJECT <br>
+                (code number(5), <br>
+                 name varchar2(30), <br>
+                 contact_no varchar2(12), <br>
+                 addr address, <br>
+                 member procedure display <br>
+                ); <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type created.</p>
+            <p>Instantiating an Object</p>
+            <p>Defining an object type provides a blueprint for the object. To use this object, you need to create instances of this object. You can access the attributes and methods of the object using the instance name and the access operator (.) as follows −<br>
+                DECLARE <br>
+                   residence address; <br>
+                BEGIN <br>
+                   residence := address('103A', 'M.G.Road', 'Jaipur', 'Rajasthan','201301'); <br>
+                   dbms_output.put_line('House No: '|| residence.house_no); <br>
+                   dbms_output.put_line('Street: '|| residence.street); <br>
+                   dbms_output.put_line('City: '|| residence.city); <br>
+                   dbms_output.put_line('State: '|| residence.state); <br>
+                   dbms_output.put_line('Pincode: '|| residence.pincode); <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                House No: 103A <br>
+                Street: M.G.Road <br>
+                City: Jaipur <br>
+                State: Rajasthan <br>
+                Pincode: 201301  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Member Methods</p>
+            <p>Member methods are used for manipulating the attributes of the object. You provide the declaration of a member method while declaring the object type. The object body defines the code for the member methods. The object body is created using the CREATE TYPE BODY statement.
+                Constructors are functions that return a new object as its value. Every object has a system defined constructor method. The name of the constructor is same as the object type. For example −<br>
+                residence := address('103A', 'M.G.Road', 'Jaipur', 'Rajasthan','201301'); <br>
+                The comparison methods are used for comparing objects. There are two ways to compare objects −<br>
+                Map method<br>
+                The Map method is a function implemented in such a way that its value depends upon the value of the attributes. For example, for a customer object, if the customer code is same for two customers, both customers could be the same. So the relationship between these two objects would depend upon the value of code.<br>
+                Order method<br>
+                The Order method implements some internal logic for comparing two objects. For example, for a rectangle object, a rectangle is bigger than another rectangle if both its sides are bigger.</p>
+            <p>Using Map method</p>
+            <p>Let us try to understand the above concepts using the following rectangle object −<br>
+                CREATE OR REPLACE TYPE rectangle AS OBJECT <br>
+                (length number, <br>
+                 width number, <br>
+                 member function enlarge( inc number) return rectangle, <br>
+                 member procedure display, <br>
+                 map member function measure return number <br>
+                ); <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type created.<br>
+                Creating the type body −<br>
+                CREATE OR REPLACE TYPE BODY rectangle AS <br>
+                   MEMBER FUNCTION enlarge(inc number) return rectangle IS <br>
+                   BEGIN <br>
+                      return rectangle(self.length + inc, self.width + inc); <br>
+                   END enlarge;  <br>
+                   MEMBER PROCEDURE display IS <br>
+                   BEGIN  <br>
+                      dbms_output.put_line('Length: '|| length); <br>
+                      dbms_output.put_line('Width: '|| width); <br>
+                   END display;  <br>
+                   MAP MEMBER FUNCTION measure return number IS <br>
+                   BEGIN <br>
+                      return (sqrt(length*length + width*width)); <br>
+                   END measure; <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type body created.<br>
+                Now using the rectangle object and its member functions −<br>
+                DECLARE <br>
+                   r1 rectangle; <br>
+                   r2 rectangle; <br>
+                   r3 rectangle; <br>
+                   inc_factor number := 5; <br>
+                BEGIN <br>
+                   r1 := rectangle(3, 4); <br>
+                   r2 := rectangle(5, 7); <br>
+                   r3 := r1.enlarge(inc_factor); <br>
+                   r3.display;  <br>
+                   IF (r1 > r2) THEN -- calling measure function <br>
+                      r1.display; <br>
+                   ELSE <br>
+                      r2.display; <br>
+                   END IF; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Length: 8 <br>
+                Width: 9 <br>
+                Length: 5 <br>
+                Width: 7  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Using Order method</p>
+            <p>Now, the same effect could be achieved using an order method. Let us recreate the rectangle object using an order method −<br>
+                CREATE OR REPLACE TYPE rectangle AS OBJECT <br>
+                (length number, <br>
+                 width number, <br>
+                 member procedure display, <br>
+                 order member function measure(r rectangle) return number <br>
+                ); <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type created.<br>
+                Creating the type body −<br>
+                CREATE OR REPLACE TYPE BODY rectangle AS <br>
+                   MEMBER PROCEDURE display IS <br>
+                   BEGIN <br>
+                      dbms_output.put_line('Length: '|| length); <br>
+                      dbms_output.put_line('Width: '|| width); <br>
+                   END display;  <br>
+                   ORDER MEMBER FUNCTION measure(r rectangle) return number IS <br>
+                   BEGIN <br>
+                      IF(sqrt(self.length*self.length + self.width*self.width)> <br>
+                         sqrt(r.length*r.length + r.width*r.width)) then <br>
+                         return(1); <br>
+                      ELSE <br>
+                         return(-1); <br>
+                      END IF; <br>
+                   END measure; <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type body created.<br>
+                Using the rectangle object and its member functions −<br>
+                DECLARE <br>
+                   r1 rectangle; <br>
+                   r2 rectangle; <br>
+                BEGIN <br>
+                   r1 := rectangle(23, 44); <br>
+                   r2 := rectangle(15, 17); <br>
+                   r1.display; <br>
+                   r2.display; <br>
+                   IF (r1 > r2) THEN -- calling measure function <br>
+                      r1.display; <br>
+                   ELSE <br>
+                      r2.display; <br>
+                   END IF; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Length: 23 <br>
+                Width: 44 <br>
+                Length: 15 <br>
+                Width: 17 <br>
+                Length: 23 <br>
+                Width: 44 <br>  
+                PL/SQL procedure successfully completed.</p>
+            <p>Inheritance for PL/SQL Objects</p>
+            <p>PL/SQL allows creating object from the existing base objects. To implement inheritance, the base objects should be declared as NOT FINAL. The default is FINAL.
+                The following programs illustrate the inheritance in PL/SQL Objects. Let us create another object named TableTop, this is inherited from the Rectangle object. For this, we need to create the base rectangle object −<br>
+                CREATE OR REPLACE TYPE rectangle AS OBJECT <br>
+                (length number, <br>
+                 width number, <br>
+                 member function enlarge( inc number) return rectangle, <br>
+                 NOT FINAL member procedure display) NOT FINAL <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type created.<br>
+                Creating the base type body −<br>
+                CREATE OR REPLACE TYPE BODY rectangle AS <br>
+                   MEMBER FUNCTION enlarge(inc number) return rectangle IS <br>
+                   BEGIN <br>
+                      return rectangle(self.length + inc, self.width + inc); <br>
+                   END enlarge;  <br>
+                   MEMBER PROCEDURE display IS <br>
+                   BEGIN <br>
+                      dbms_output.put_line('Length: '|| length); <br>
+                      dbms_output.put_line('Width: '|| width); <br>
+                   END display; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type body created.<br>
+                Creating the child object tabletop −<br>
+                CREATE OR REPLACE TYPE tabletop UNDER rectangle <br>
+                (   <br>
+                   material varchar2(20), <br>
+                   OVERRIDING member procedure display <br>
+                ) <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type created.<br>
+                Creating the type body for the child object tabletop<br>
+                CREATE OR REPLACE TYPE BODY tabletop AS <br>
+                OVERRIDING MEMBER PROCEDURE display IS <br>
+                BEGIN <br>
+                   dbms_output.put_line('Length: '|| length); <br>
+                   dbms_output.put_line('Width: '|| width); <br>
+                   dbms_output.put_line('Material: '|| material); <br>
+                END display; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type body created.<br>
+                Using the tabletop object and its member functions −<br>
+                DECLARE <br>
+                   t1 tabletop; <br>
+                   t2 tabletop; <br>
+                BEGIN <br>
+                   t1:= tabletop(20, 10, 'Wood'); <br>
+                   t2 := tabletop(50, 30, 'Steel'); <br>
+                   t1.display; <br>
+                   t2.display; <br>
+                END;<br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Length: 20 <br>
+                Width: 10 <br>
+                Material: Wood <br>
+                Length: 50 <br>
+                Width: 30 <br>
+                Material: Steel  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Abstract Objects in PL/SQL</p>
+            <p>The NOT INSTANTIABLE clause allows you to declare an abstract object. You cannot use an abstract object as it is; you will have to create a subtype or child type of such objects to use its functionalities.<br>
+                For example,<br>
+                CREATE OR REPLACE TYPE rectangle AS OBJECT <br>
+                (length number, <br>
+                 width number, <br>
+                 NOT INSTANTIABLE NOT FINAL MEMBER PROCEDURE display)  <br>
+                 NOT INSTANTIABLE NOT FINAL <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Type created.</p>
+            <a href="plsqldbmsoutput.html" class="next">&lt; Previous Page</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

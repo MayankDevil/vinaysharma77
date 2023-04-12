@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Transactions</h2>
+            <p>In this chapter, we will discuss the transactions in PL/SQL. A database transaction is an atomic unit of work that may consist of one or more related SQL statements. It is called atomic because the database modifications brought about by the SQL statements that constitute a transaction can collectively be either committed, i.e., made permanent to the database or rolled back (undone) from the database.
+                A successfully executed SQL statement and a committed transaction are not same. Even if an SQL statement is executed successfully, unless the transaction containing the statement is committed, it can be rolled back and all changes made by the statement(s) can be undone.</p>
+            <p>Starting and Ending a Transaction</p>
+            <p>A transaction has a beginning and an end. A transaction starts when one of the following events take place −</p>
+            <ul>
+                <li>The first SQL statement is performed after connecting to the database.</li>
+                <li>At each new SQL statement issued after a transaction is completed.</li>
+            </ul>
+            <p>A transaction ends when one of the following events take place −</p>
+            <ul>
+                <li>A COMMIT or a ROLLBACK statement is issued.</li>
+                <li>A DDL statement, such as CREATE TABLE statement, is issued; because in that case a COMMIT is automatically performed.</li>
+                <li>A DCL statement, such as a GRANT statement, is issued; because in that case a COMMIT is automatically performed.</li>
+                <li>User disconnects from the database.</li>
+                <li>User exits from SQL*PLUS by issuing the EXIT command, a COMMIT is automatically performed.</li>
+                <li>SQL*Plus terminates abnormally, a ROLLBACK is automatically performed.</li>
+                <li>A DML statement fails; in that case a ROLLBACK is automatically performed for undoing that DML statement.</li>
+            </ul>
+            <p>Committing a Transaction</p>
+            <p>A transaction is made permanent by issuing the SQL command COMMIT. The general syntax for the COMMIT command is −<br>
+                COMMIT;<br>
+                For example,<br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (1, 'Ramesh', 32, 'Ahmedabad', 2000.00 ); <br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (2, 'Khilan', 25, 'Delhi', 1500.00 ); <br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (3, 'kaushik', 23, 'Kota', 2000.00 ); <br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (4, 'Chaitali', 25, 'Mumbai', 6500.00 ); <br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (5, 'Hardik', 27, 'Bhopal', 8500.00 ); <br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (6, 'Komal', 22, 'MP', 4500.00 ); <br>
+                COMMIT;</p>
+            <p>Rolling Back Transactions</p>
+            <p>Changes made to the database without COMMIT could be undone using the ROLLBACK command.
+                The general syntax for the ROLLBACK command is −<br>                
+                ROLLBACK [TO SAVEPOINT &lt; savepoint_name>]; <br>
+                When a transaction is aborted due to some unprecedented situation, like system failure, the entire transaction since a commit is automatically rolled back. If you are not using savepoint, then simply use the following statement to rollback all the changes −<br>
+                ROLLBACK;</p>
+            <p>Savepoints</p>
+            <p>Savepoints are sort of markers that help in splitting a long transaction into smaller units by setting some checkpoints. By setting savepoints within a long transaction, you can roll back to a checkpoint if required. This is done by issuing the SAVEPOINT command.<br>
+                The general syntax for the SAVEPOINT command is −<br>
+                SAVEPOINT &lt; savepoint_name &gt;;<br>
+                For example<br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (7, 'Rajnish', 27, 'HP', 9500.00 ); <br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (8, 'Riddhi', 21, 'WB', 4500.00 ); <br>
+                SAVEPOINT sav1;<br>
+                UPDATE CUSTOMERS <br>
+                SET SALARY = SALARY + 1000; <br>
+                ROLLBACK TO sav1;<br>
+                UPDATE CUSTOMERS <br>
+                SET SALARY = SALARY + 1000 <br>
+                WHERE ID = 7; <br>
+                UPDATE CUSTOMERS <br>
+                SET SALARY = SALARY + 1000 <br>
+                WHERE ID = 8; <br>
+                COMMIT;<br>
+                ROLLBACK TO sav1 − This statement rolls back all the changes up to the point, where you had marked savepoint sav1.
+                After that, the new changes that you make will start.</p>
+            <p>Automatic Transaction Control</p>
+            <p>To execute a COMMIT automatically whenever an INSERT, UPDATE or DELETE command is executed, you can set the AUTOCOMMIT environment variable as −<br>
+                SET AUTOCOMMIT ON; <br>
+                You can turn-off the auto commit mode using the following command −<br>
+                SET AUTOCOMMIT OFF;</p>
+            <a href="plsqlcollections.html" class="next">&lt; Previous Page</a>
+            <a href="plsqldatetime.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

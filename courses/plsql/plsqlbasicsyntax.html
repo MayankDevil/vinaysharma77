@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Basic Syntax</h2>
+            <p>In this chapter, we will discuss the Basic Syntax of PL/SQL which is a block-structured language; this means that the PL/SQL programs are divided and written in logical blocks of code. Each block consists of three sub-parts −</p>
+            <p>Declarations</p>
+            <p>This section starts with the keyword DECLARE. It is an optional section and defines all variables, cursors, subprograms, and other elements to be used in the program.</p>
+            <p>Executable Commands</p>
+            <p>This section is enclosed between the keywords BEGIN and END and it is a mandatory section. It consists of the executable PL/SQL statements of the program. It should have at least one executable line of code, which may be just a NULL command to indicate that nothing should be executed.</p>
+            <p>Exception Handling</p>
+            <p>This section starts with the keyword EXCEPTION. This optional section contains exception(s) that handle errors in the program.</p>
+            <p>Every PL/SQL statement ends with a semicolon (;). PL/SQL blocks can be nested within other PL/SQL blocks using BEGIN and END. Following is the basic structure of a PL/SQL block −</p>
+            <p>DECLARE 
+                &lt;declarations section&gt;<br> 
+             BEGIN <br>
+                &lt;executable command(s)&gt;<br>
+             EXCEPTION <br>
+                &lt;exception handling&gt;<br> 
+             END;</p>
+            <p>The 'Hello World' Example</p>
+            <p>DECLARE <br>
+                message  varchar2(20):= 'Hello, World!'; <br>
+             BEGIN <br>
+                dbms_output.put_line(message); <br>
+             END; <br>
+             / </p>
+            <p>The end; line signals the end of the PL/SQL block. To run the code from the SQL command line, you may need to type / at the beginning of the first blank line after the last line of the code. When the above code is executed at the SQL prompt, it produces the following result −</p>
+            <p>Hello World  <br>
+                PL/SQL procedure successfully completed.</p>
+            <p>The PL/SQL Identifiers</p>
+            <p>PL/SQL identifiers are constants, variables, exceptions, procedures, cursors, and reserved words. The identifiers consist of a letter optionally followed by more letters, numerals, dollar signs, underscores, and number signs and should not exceed 30 characters.
+                By default, identifiers are not case-sensitive. So you can use integer or INTEGER to represent a numeric value. You cannot use a reserved keyword as an identifier.</p>
+            <p>The PL/SQL Delimiters</p>
+            <p>A delimiter is a symbol with a special meaning. Following is the list of delimiters in PL/SQL −</p>
+            <ul>
+                <li>+, -, *, /	(Addition, subtraction/negation, multiplication, division)</li>
+                <li>%	(Attribute indicator)</li>
+                <li>'	(Character string delimiter)</li>
+                <li>.	(Component selector)</li>
+                <li>(,)	(Expression or list delimiter)</li>
+                <li>:	(Host variable indicator)</li>
+                <li>,	(Item separator)</li>
+                <li>"	(Quoted identifier delimiter)</li>
+                <li>=	(Relational operator)</li>
+                <li>@	(Remote access indicator)</li>
+                <li>;	(Statement terminator)</li>
+                <li>:=	(Assignment operator)</li>
+                <li>=&gt;	(Association operator)</li>
+                <li>||	(Concatenation operator)</li>
+                <li>**	(Exponentiation operator)</li>
+                <li>&lt;&lt;, &gt;&gt;	(Label delimiter (begin and end))</li>
+                <li>/*, */	(Multi-line comment delimiter (begin and end))</li>
+                <li>--	(Single-line comment indicator)</li>
+                <li>..	(Range operator)</li>
+                <li>&lt;, &gt;, &lt;=, &gt;=	(Relational operators)</li>
+                <li>&lt;&gt;, '=, ~=, ^=	(Different versions of NOT EQUAL)</li>
+            </ul>
+            <p>The PL/SQL Comments</p>
+            <p>Program comments are explanatory statements that can be included in the PL/SQL code that you write and helps anyone reading its source code. All programming languages allow some form of comments.
+                The PL/SQL supports single-line and multi-line comments. All characters available inside any comment are ignored by the PL/SQL compiler. The PL/SQL single-line comments start with the delimiter -- (double hyphen) and multi-line comments are enclosed by /* and */.</p>
+            <p>DECLARE <br>
+                -- variable declaration <br>
+                message  varchar2(20):= 'Hello, World!'; <br>
+             BEGIN <br>
+                /* <br>
+                *  PL/SQL executable statement(s) <br>
+                */ <br>
+                dbms_output.put_line(message); <br>
+             END; <br>
+             /</p>
+            <p>When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Hello World<br>                
+                PL/SQL procedure successfully completed.</p>
+            <p>PL/SQL Program Units</p>
+            <p>A PL/SQL unit is any one of the following −</p>
+            <ul>
+                <li>PL/SQL block</li>
+                <li>Function</li>
+                <li>Package</li>
+                <li>Package body</li>
+                <li>Procedure</li>
+                <li>Trigger</li>
+                <li>Type</li>
+                <li>Type body</li>
+            </ul>
+            <a href="plsqlenvironment.html" class="next">&lt; Previous Page</a>
+            <a href="plsqldatatypes.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

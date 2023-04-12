@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Data Types</h2>
+            <p>In this chapter, we will discuss the Data Types in PL/SQL. The PL/SQL variables, constants and parameters must have a valid data type, which specifies a storage format, constraints, and a valid range of values. We will focus on the SCALAR and the LOB data types in this chapter. The other two data types will be covered in other chapters.</p>
+            <p>Scalar</p>
+            <p>Single values with no internal components, such as a NUMBER, DATE, or BOOLEAN.</p>
+            <p>Large Object (LOB)</p>
+            <p>Pointers to large objects that are stored separately from other data items, such as text, graphic images, video clips, and sound waveforms.</p>
+            <p>Composite</p>
+            <p>Data items that have internal components that can be accessed individually. For example, collections and records.</p>
+            <p>Reference</p>
+            <p>Pointers to other data items.</p>
+            <p>PL/SQL Scalar Data Types and Subtypes</p>
+            <p>PL/SQL Scalar Data Types and Subtypes come under the following categories −</p>
+            <p>Numeric</p>
+            <p>Numeric values on which arithmetic operations are performed.</p>
+            <p>Character</p>
+            <p>Alphanumeric values that represent single characters or strings of characters.</p>
+            <p>Boolean</p>
+            <p>Logical values on which logical operations are performed.</p>
+            <p>Datetime</p>
+            <p>Dates and times.</p>
+            <p>PL/SQL provides subtypes of data types. For example, the data type NUMBER has a subtype called INTEGER. You can use the subtypes in your PL/SQL program to make the data types compatible with data types in other programs while embedding the PL/SQL code in another program, such as a Java program.</p>
+            <p>PL/SQL Numeric Data Types and Subtypes</p>
+            <p>Following table lists out the PL/SQL pre-defined numeric data types and their sub-types −</p>
+            <p>PLS_INTEGER<br>
+                Signed integer in range -2,147,483,648 through 2,147,483,647, represented in 32 bits</p>
+            <p>BINARY_INTEGER<br>
+                Signed integer in range -2,147,483,648 through 2,147,483,647, represented in 32 bits</p>
+            <p>BINARY_FLOAT<br>
+                Single-precision IEEE 754-format floating-point number</p>
+            <p>BINARY_DOUBLE<br>
+                Double-precision IEEE 754-format floating-point number</p>
+            <p>NUMBER(prec, scale)<br>
+                Fixed-point or floating-point number with absolute value in range 1E-130 to (but not including) 1.0E126. A NUMBER variable can also represent 0</p>
+            <p>DEC(prec, scale)<br>
+                ANSI specific fixed-point type with maximum precision of 38 decimal digits</p>
+            <p>DECIMAL(prec, scale)<br>
+                IBM specific fixed-point type with maximum precision of 38 decimal digits</p>
+            <p>NUMERIC(pre, secale)<br>
+                Floating type with maximum precision of 38 decimal digits</p>
+            <p>DOUBLE PRECISION<br>
+                ANSI specific floating-point type with maximum precision of 126 binary digits (approximately 38 decimal digits)</p>
+            <p>FLOAT<br>
+                ANSI and IBM specific floating-point type with maximum precision of 126 binary digits (approximately 38 decimal digits)</p>
+            <p>INT<br>
+                ANSI specific integer type with maximum precision of 38 decimal digits</p>
+            <p>INTEGER<br>
+                ANSI and IBM specific integer type with maximum precision of 38 decimal digits</p>
+            <p>SMALLINT<br>
+                ANSI and IBM specific integer type with maximum precision of 38 decimal digits</p>
+            <p>REAL<br>
+                Floating-point type with maximum precision of 63 binary digits (approximately 18 decimal digits)</p>
+            <p>Following is a valid declaration −<br>
+                DECLARE <br>
+                   num1 INTEGER;<br> 
+                   num2 REAL; <br>
+                   num3 DOUBLE PRECISION;<br> 
+                BEGIN <br>
+                   null; <br>
+                END; <br>
+                / <br>
+                When the above code is compiled and executed, it produces the following result −<br>
+                PL/SQL procedure successfully completed </p>
+            <p>PL/SQL Character Data Types and Subtypes</p>
+            <p>Following is the detail of PL/SQL pre-defined character data types and their sub-types −</p>
+            <p>CHAR<br>
+                Fixed-length character string with maximum size of 32,767 bytes</p>
+            <p>VARCHAR2<br>
+                Variable-length character string with maximum size of 32,767 bytes</p>
+            <p>RAW<br>
+                Variable-length binary or byte string with maximum size of 32,767 bytes, not interpreted by PL/SQL</p>
+            <p>NCHAR<br>
+                Fixed-length national character string with maximum size of 32,767 bytes</p>
+            <p>NVARCHAR2<br>
+                Variable-length national character string with maximum size of 32,767 bytes</p>
+            <p>LONG<br>
+                Variable-length character string with maximum size of 32,760 bytes</p>
+            <p></p>
+            <p>LONG RAW<br>
+                Variable-length binary or byte string with maximum size of 32,760 bytes, not interpreted by PL/SQL</p>
+            <p>ROWID<br>
+                Physical row identifier, the address of a row in an ordinary table</p>
+            <p>UROWID<br>
+                Universal row identifier (physical, logical, or foreign row identifier)</p>
+            <p>PL/SQL Boolean Data Types</p>
+            <p>The BOOLEAN data type stores logical values that are used in logical operations. The logical values are the Boolean values TRUE and FALSE and the value NULL.
+                However, SQL has no data type equivalent to BOOLEAN. Therefore, Boolean values cannot be used in −<br>
+                SQL statements<br>
+                Built-in SQL functions (such as TO_CHAR)<br>
+                PL/SQL functions invoked from SQL statements</p>
+            <p>PL/SQL Datetime and Interval Types</p>
+            <p>The DATE datatype is used to store fixed-length datetimes, which include the time of day in seconds since midnight. Valid dates range from January 1, 4712 BC to December 31, 9999 AD.
+                The default date format is set by the Oracle initialization parameter NLS_DATE_FORMAT. For example, the default might be 'DD-MON-YY', which includes a two-digit number for the day of the month, an abbreviation of the month name, and the last two digits of the year. For example, 01-OCT-12. 
+                Each DATE includes the century, year, month, day, hour, minute, and second.</p>
+            <p>PL/SQL Large Object (LOB) Data Types</p>
+            <p>Large Object (LOB) data types refer to large data items such as text, graphic images, video clips, and sound waveforms. LOB data types allow efficient, random, piecewise access to this data. </p>
+            <p>PL/SQL User-Defined Subtypes</p>
+            <p>A subtype is a subset of another data type, which is called its base type. A subtype has the same valid operations as its base type, but only a subset of its valid values.
+                PL/SQL predefines several subtypes in package STANDARD. For example, PL/SQL predefines the subtypes CHARACTER and INTEGER as follows −<br>                
+                SUBTYPE CHARACTER IS CHAR; <br>
+                SUBTYPE INTEGER IS NUMBER(38,0);<br>
+                You can define and use your own subtypes. The following program illustrates defining and using a user-defined subtype −<br> 
+                DECLARE <br>
+                   SUBTYPE name IS char(20); <br>
+                   SUBTYPE message IS varchar2(100); <br>
+                   salutation name; <br>
+                   greetings message; <br>
+                BEGIN <br>
+                   salutation := 'Reader '; <br>
+                   greetings := 'Welcome to the World of PL/SQL'; <br>
+                   dbms_output.put_line('Hello ' || salutation || greetings); <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Hello Reader Welcome to the World of PL/SQL <br>
+                PL/SQL procedure successfully completed. </p>
+                <p>NULLs in PL/SQL</p>
+                <p>PL/SQL NULL values represent missing or unknown data and they are not an integer, a character, or any other specific data type. Note that NULL is not the same as an empty data string or the null character value '\0'. A null can be assigned but it cannot be equated with anything, including itself.</p>
+            <a href="plsqlbasicsyntax.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlvariables.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

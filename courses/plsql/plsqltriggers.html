@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Triggers</h2>
+            <p>In this chapter, we will discuss Triggers in PL/SQL. Triggers are stored programs, which are automatically executed or fired when some events occur. Triggers are, in fact, written to be executed in response to any of the following events −</p>
+            <ul>
+                <li>A database manipulation (DML) statement (DELETE, INSERT, or UPDATE)</li>
+                <li>A database definition (DDL) statement (CREATE, ALTER, or DROP).</li>
+                <li>A database operation (SERVERERROR, LOGON, LOGOFF, STARTUP, or SHUTDOWN).</li>
+            </ul>
+            <p>Triggers can be defined on the table, view, schema, or database with which the event is associated.</p>
+            <p>Benefits of Triggers</p>
+            <p>Triggers can be written for the following purposes −</p>
+            <ul>
+                <li>Generating some derived column values automatically</li>
+                <li>Enforcing referential integrity</li>
+                <li>Event logging and storing information on table access</li>
+                <li>Auditing</li>
+                <li>Synchronous replication of tables</li>
+                <li>Imposing security authorizations</li>
+                <li>Preventing invalid transactions</li>
+            </ul>
+            <p>Creating Triggers</p>
+            <p>The syntax for creating a trigger is −<br>
+                CREATE [OR REPLACE ] TRIGGER trigger_name  <br>
+                {BEFORE | AFTER | INSTEAD OF }  <br>
+                {INSERT [OR] | UPDATE [OR] | DELETE}  <br>
+                [OF col_name]  <br>
+                ON table_name  <br>
+                [REFERENCING OLD AS o NEW AS n]  <br>
+                [FOR EACH ROW]  <br>
+                WHEN (condition)   <br>
+                DECLARE <br>
+                   Declaration-statements <br>
+                BEGIN  <br>
+                   Executable-statements <br>
+                EXCEPTION <br>
+                   Exception-handling-statements <br>
+                END; <br>
+                Where,</p>
+            <ul>
+                <li>CREATE [OR REPLACE] TRIGGER trigger_name − Creates or replaces an existing trigger with the trigger_name.</li>
+                <li>{BEFORE | AFTER | INSTEAD OF} − This specifies when the trigger will be executed. The INSTEAD OF clause is used for creating trigger on a view.</li>
+                <li>{INSERT [OR] | UPDATE [OR] | DELETE} − This specifies the DML operation.</li>
+                <li>[OF col_name] − This specifies the column name that will be updated.</li>
+                <li>[ON table_name] − This specifies the name of the table associated with the trigger.</li>
+                <li>[REFERENCING OLD AS o NEW AS n] − This allows you to refer new and old values for various DML statements, such as INSERT, UPDATE, and DELETE.</li>
+                <li>[FOR EACH ROW] − This specifies a row-level trigger, i.e., the trigger will be executed for each row being affected. Otherwise the trigger will execute just once when the SQL statement is executed, which is called a table level trigger.</li>
+                <li>WHEN (condition) − This provides a condition for rows for which the trigger would fire. This clause is valid only for row-level triggers.</li>
+            </ul>
+            <p>Example</p>
+            <p>To start with, we will be using the CUSTOMERS table we had created and used in the previous chapters −<br>
+                Select * from customers;  </p>
+            <p>The following program creates a row-level trigger for the customers table that would fire for INSERT or UPDATE or DELETE operations performed on the CUSTOMERS table. This trigger will display the salary difference between the old values and new values −<br>
+                CREATE OR REPLACE TRIGGER display_salary_changes <br>
+                BEFORE DELETE OR INSERT OR UPDATE ON customers <br>
+                FOR EACH ROW <br>
+                WHEN (NEW.ID > 0) <br>
+                DECLARE <br>
+                   sal_diff number; <br>
+                BEGIN <br>
+                   sal_diff := :NEW.salary  - :OLD.salary; <br>
+                   dbms_output.put_line('Old salary: ' || :OLD.salary); <br>
+                   dbms_output.put_line('New salary: ' || :NEW.salary); <br>
+                   dbms_output.put_line('Salary difference: ' || sal_diff); <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Trigger created.<br>
+                The following points need to be considered here −</p>
+            <ul>
+                <li>OLD and NEW references are not available for table-level triggers, rather you can use them for record-level triggers.</li>
+                <li>If you want to query the table in the same trigger, then you should use the AFTER keyword, because triggers can query the table or change it again only after the initial changes are applied and the table is back in a consistent state.</li>
+                <li>The above trigger has been written in such a way that it will fire before any DELETE or INSERT or UPDATE operation on the table, but you can write your trigger on a single or multiple operations, for example BEFORE DELETE, which will fire whenever a record will be deleted using the DELETE operation on the table.</li>
+            </ul>
+            <p>Triggering a Trigger</p>
+            <p>Let us perform some DML operations on the CUSTOMERS table. Here is one INSERT statement, which will create a new record in the table −<br>
+                INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+                VALUES (7, 'Kriti', 22, 'HP', 7500.00 ); <br>
+                When a record is created in the CUSTOMERS table, the above create trigger, display_salary_changes will be fired and it will display the following result −<br>
+                Old salary: <br>
+                New salary: 7500 <br>
+                Salary difference:<br>
+                Because this is a new record, old salary is not available and the above result comes as null. Let us now perform one more DML operation on the CUSTOMERS table. The UPDATE statement will update an existing record in the table −<br>
+                UPDATE customers <br>
+                SET salary = salary + 500 <br>
+                WHERE id = 2; <br>
+                When a record is updated in the CUSTOMERS table, the above create trigger, display_salary_changes will be fired and it will display the following result −<br>
+                Old salary: 1500 <br>
+                New salary: 2000 <br>
+                Salary difference: 500 </p>
+            <a href="plsqlexceptions.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlpackages.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

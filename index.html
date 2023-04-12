@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light" id="light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="#">Home</a>
+                <a href="#courses">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <p class="main-head">Beginners Coding Platform</p>
+        <p class="typing">Let’s begin your coding journey</p>
+        <div class="search-box">
+            <input type="text" name="search" id="search" placeholder="Search topics...">
+            <ion-icon name="search-outline"></ion-icon>
+        </div>
+        <p class="explore">Explore Courses</p>
+        <div class="courses" id="courses">
+            <div class="course-row">
+                <div class="course" onclick="location.href='courses/html/htmlcourse.html'">
+                    <div class="course-name">HTML</div>
+                    <div class="course-para">HTML is used to create web
+                        pages. It is used to create a
+                        website structure.</div>
+                </div>
+                <div class="course" onclick="location.href='#'">
+                    <div class="course-name">CSS</div>
+                    <div class="course-para">CSS is used to style web
+                        pages. It is a stylesheet that
+                        is used to style a website.</div>
+                </div>
+            </div>
+            <div class="course-row">
+                <div class="course" onclick="location.href='#'">
+                    <div class="course-name">JS</div>
+                    <div class="course-para">JavaScript is used to create
+                        dynamic web pages. It is a
+                        scripting language.</div>
+                </div>
+                <div class="course" onclick="location.href='courses/mysql/mysqlcourse.html'">
+                    <div class="course-name">MySQL</div>
+                    <div class="course-para">MySQL is relational database
+                        management system. It is
+                        open source language.</div>
+                </div>
+            </div>
+            <div class="course-row">
+                <div class="course" onclick="location.href='courses/plsql/plsqlcourse.html'">
+                    <div class="course-name">PLSQL</div>
+                    <div class="course-para">PLSQL is Procedural Language.
+                        It is used to create procedures
+                        for databases.</div>
+                </div>
+                <div class="course" onclick="location.href='#'">
+                    <div class="course-name">PHP</div>
+                    <div class="course-para">PHP is server side language.
+                        It is used to create server
+                        side web pages.</div>
+                </div>
+            </div>
+        </div>
+        <p class="editor">Our Editor</p>
+        <div class="editor-box">
+            <div class="editor-para">
+                <h2>Learn with Examples</h2>
+                <p>Use our online text editor and learn tutorials with examples.</p><br><br>
+                <a href="#" class="test-it">Test it</a>
+            </div>
+            <div class="editor-img">
+                <img src="imgs/Untitled-1.svg" alt="editor-image">
+            </div>
+        </div>
+        <p class="project">Explore Projects</p>
+        <div class="project-box">
+            <div class="project-para">
+                <h2>Explore Our Projects</h2>
+                <p>Behind every project, there’s a creative person.<br>
+                    You are also a creative person.
+                    Start practising with our projects.</p><br><br>
+                <a href="#" class="test-it">View Projects</a>
+            </div>
+            <div class="project-img">
+                <img src="imgs/Untitled-2.svg" alt="project-image">
+            </div>
+        </div>
+        <div class="question">
+            <h2>Ask Questions</h2>
+            <form method="post" action="index.html">
+                <input type="text" name="question" id="question" placeholder="Ask something..."><br><br>
+                <input type="submit" value="Submit"><br><br>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

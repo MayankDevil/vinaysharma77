@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Cursors</h2>
+            <p>In this chapter, we will discuss the cursors in PL/SQL. Oracle creates a memory area, known as the context area, for processing an SQL statement, which contains all the information needed for processing the statement; for example, the number of rows processed, etc.
+                A cursor is a pointer to this context area. PL/SQL controls the context area through a cursor. A cursor holds the rows (one or more) returned by a SQL statement. The set of rows the cursor holds is referred to as the active set.
+                You can name a cursor so that it could be referred to in a program to fetch and process the rows returned by the SQL statement, one at a time. There are two types of cursors −</p>
+            <ul>
+                <li>Implicit cursors</li>
+                <li>Explicit cursors</li>
+            </ul>
+            <p>Implicit Cursors</p>
+            <p>Implicit cursors are automatically created by Oracle whenever an SQL statement is executed, when there is no explicit cursor for the statement. Programmers cannot control the implicit cursors and the information in it.
+                Whenever a DML statement (INSERT, UPDATE and DELETE) is issued, an implicit cursor is associated with this statement. For INSERT operations, the cursor holds the data that needs to be inserted. For UPDATE and DELETE operations, the cursor identifies the rows that would be affected.
+                In PL/SQL, you can refer to the most recent implicit cursor as the SQL cursor, which always has attributes such as %FOUND, %ISOPEN, %NOTFOUND, and %ROWCOUNT. The SQL cursor has additional attributes, %BULK_ROWCOUNT and %BULK_EXCEPTIONS, designed for use with the FORALL statement.</p>
+            <p>%FOUND<br>
+                Returns TRUE if an INSERT, UPDATE, or DELETE statement affected one or more rows or a SELECT INTO statement returned one or more rows. Otherwise, it returns FALSE.</p>
+            <p>%NOTFOUND<br>
+                The logical opposite of %FOUND. It returns TRUE if an INSERT, UPDATE, or DELETE statement affected no rows, or a SELECT INTO statement returned no rows. Otherwise, it returns FALSE.</p>
+            <p>%ISOPEN<br>
+                Always returns FALSE for implicit cursors, because Oracle closes the SQL cursor automatically after executing its associated SQL statement.</p>
+            <p>%ROWCOUNT<br>
+                Returns the number of rows affected by an INSERT, UPDATE, or DELETE statement, or returned by a SELECT INTO statement.</p>
+            <p>Any SQL cursor attribute will be accessed as sql%attribute_name as shown below in the example.</p>
+            <p>Example</p>
+            <p>We will be using the CUSTOMERS table we had created and used in the previous chapters.<br>
+                Select * from customers;<br>
+                The following program will update the table and increase the salary of each customer by 500 and use the SQL%ROWCOUNT attribute to determine the number of rows affected −<br>
+                DECLARE  <br>
+                   total_rows number(2); <br>
+                BEGIN <br>
+                   UPDATE customers <br>
+                   SET salary = salary + 500; <br>
+                   IF sql%notfound THEN <br>
+                      dbms_output.put_line('no customers selected'); <br>
+                   ELSIF sql%found THEN <br>
+                      total_rows := sql%rowcount;<br>
+                      dbms_output.put_line( total_rows || ' customers selected '); <br>
+                   END IF;  <br>
+                END; <br>
+                /      <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                6 customers selected  <br>                
+                PL/SQL procedure successfully completed. <br>
+                If you check the records in customers table, you will find that the rows have been updated −<br>
+                Select * from customers;  </p>
+            <p>Explicit Cursors</p>
+            <p>Explicit cursors are programmer-defined cursors for gaining more control over the context area. An explicit cursor should be defined in the declaration section of the PL/SQL Block. It is created on a SELECT Statement which returns more than one row.
+                The syntax for creating an explicit cursor is −<br>                
+                CURSOR cursor_name IS select_statement; <br>
+                Working with an explicit cursor includes the following steps −</p>
+            <ul>
+                <li>Declaring the cursor for initializing the memory</li>
+                <li>Opening the cursor for allocating the memory</li>
+                <li>Fetching the cursor for retrieving the data</li>
+                <li>Closing the cursor to release the allocated memory</li>
+            </ul>
+            <p>Declaring the Cursor</p>
+            <p>Declaring the cursor defines the cursor with a name and the associated SELECT statement. For example −<br>
+                CURSOR c_customers IS <br>
+                   SELECT id, name, address FROM customers; </p>
+            <p>Opening the Cursor</p>
+            <p>Opening the cursor allocates the memory for the cursor and makes it ready for fetching the rows returned by the SQL statement into it. For example, we will open the above defined cursor as follows −<br>
+                OPEN c_customers; </p>
+            <p>Fetching the Cursor</p>
+            <p>Fetching the cursor involves accessing one row at a time. For example, we will fetch rows from the above-opened cursor as follows −<br>
+                FETCH c_customers INTO c_id, c_name, c_addr;</p>
+            <p>Closing the Cursor</p>
+            <p>Closing the cursor means releasing the allocated memory. For example, we will close the above-opened cursor as follows −<br>
+                CLOSE c_customers;</p>
+            <p>Example</p>
+            <p>Following is a complete example to illustrate the concepts of explicit cursors &minua;<br>
+                DECLARE <br>
+                   c_id customers.id%type; <br>
+                   c_name customers.name%type; <br>
+                   c_addr customers.address%type; <br>
+                   CURSOR c_customers is <br>
+                      SELECT id, name, address FROM customers; <br>
+                BEGIN <br>
+                   OPEN c_customers; <br>
+                   LOOP <br>
+                   FETCH c_customers into c_id, c_name, c_addr; <br>
+                      EXIT WHEN c_customers%notfound; <br>
+                      dbms_output.put_line(c_id || ' ' || c_name || ' ' || c_addr); <br>
+                   END LOOP; <br>
+                   CLOSE c_customers; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                1 Ramesh Ahmedabad  <br>
+                2 Khilan Delhi  <br>
+                3 kaushik Kota     <br>
+                4 Chaitali Mumbai  <br>
+                5 Hardik Bhopal   <br>
+                6 Komal MP  <br>
+                PL/SQL procedure successfully completed. </p>
+            <a href="plsqlfunctions.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlrecords.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

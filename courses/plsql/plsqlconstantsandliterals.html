@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Constants and Literals</h2>
+            <p>In this chapter, we will discuss constants and literals in PL/SQL. A constant holds a value that once declared, does not change in the program. A constant declaration specifies its name, data type, and value, and allocates storage for it. The declaration can also impose the NOT NULL constraint.</p>
+            <p>Declaring a Constant</p>
+            <p>A constant is declared using the CONSTANT keyword. It requires an initial value and does not allow that value to be changed. For example −<br>
+                PI CONSTANT NUMBER := 3.141592654; <br>
+                DECLARE <br>
+                   -- constant declaration <br>
+                   pi constant number := 3.141592654; <br>
+                   -- other declarations <br>
+                   radius number(5,2);  <br>
+                   dia number(5,2);  <br>
+                   circumference number(7, 2); <br>
+                   area number (10, 2); <br>
+                BEGIN  <br>
+                   -- processing <br>
+                   radius := 9.5;  <br>
+                   dia := radius * 2;  <br>
+                   circumference := 2.0 * pi * radius; <br>
+                   area := pi * radius * radius; <br>
+                   -- output <br>
+                   dbms_output.put_line('Radius: ' || radius); <br>
+                   dbms_output.put_line('Diameter: ' || dia); <br>
+                   dbms_output.put_line('Circumference: ' || circumference); <br>
+                   dbms_output.put_line('Area: ' || area); <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Radius: 9.5 <br>
+                Diameter: 19 <br>
+                Circumference: 59.69 <br>
+                Area: 283.53  <br>
+                Pl/SQL procedure successfully completed.</p>
+                <p>The PL/SQL Literals</p>
+                <p>A literal is an explicit numeric, character, string, or Boolean value not represented by an identifier. For example, TRUE, 786, NULL, 'tutorialspoint' are all literals of type Boolean, number, or string. PL/SQL, literals are case-sensitive. PL/SQL supports the following kinds of literals −</p>
+                <ul>
+                    <li>Numeric Literals</li>
+                    <li>Character Literals</li>
+                    <li>String Literals</li>
+                    <li>BOOLEAN Literals</li>
+                    <li>Date and Time Literals</li>
+                </ul>
+                <p>The following table provides examples from all these categories of literal values.</p>
+                <p>Numeric Literals<br>
+                    050 78 -14 0 +32767<br>
+                    6.6667 0.0 -12.0 3.14159 +7800.00<br>
+                    6E5 1.0E-8 3.14159e0 -1E38 -9.5e-3</p>
+                <p>Character Literals<br>
+                    'A' '%' '9' ' ' 'z' '('</p>
+                <p>String Literals<br>
+                    'Hello, world!'<br>
+                    'Tutorials Point'<br>
+                    '19-NOV-12'</p>
+                <p>BOOLEAN Literals<br>
+                    TRUE, FALSE, and NULL.</p>
+                <p>Date and Time Literals<br>
+                    DATE '1978-12-25';<br>
+                    TIMESTAMP '2012-10-29 12:01:01';</p>
+                <p>To embed single quotes within a string literal, place two single quotes next to each other as shown in the following program −<br>
+                    DECLARE <br>
+                       message  varchar2(30):= 'That''s tutorialspoint.com!'; <br>
+                    BEGIN <br>
+                       dbms_output.put_line(message); <br>
+                    END; <br>
+                    /  <br>
+                    When the above code is executed at the SQL prompt, it produces the following result −<br>
+                    That's tutorialspoint.com! <br> 
+                    PL/SQL procedure successfully completed.</p>
+            <a href="plsqlvariables.html" class="next">&lt; Previous Page</a>
+            <a href="plsqloperators.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

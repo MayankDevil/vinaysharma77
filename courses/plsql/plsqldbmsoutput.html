@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - DBMS Output</h2>
+            <p>In this chapter, we will discuss the DBMS Output in PL/SQL. The DBMS_OUTPUT is a built-in package that enables you to display output, debugging information, and send messages from PL/SQL blocks, subprograms, packages, and triggers. We have already used this package throughout our tutorial.
+                Let us look at a small code snippet that will display all the user tables in the database. Try it in your database to list down all the table names −<br>
+                BEGIN<br> 
+                   dbms_output.put_line  (user || ' Tables in the database:'); <br>
+                   FOR t IN (SELECT table_name FROM user_tables) <br>
+                   LOOP <br>
+                      dbms_output.put_line(t.table_name); <br>
+                   END LOOP; <br>
+                END; <br>
+                / </p>
+            <p>DBMS_OUTPUT Subprograms</p>
+            <p>The DBMS_OUTPUT package has the following subprograms −</p>
+            <p>DBMS_OUTPUT.DISABLE;<br>
+                Disables message output.</p>
+            <p>DBMS_OUTPUT.ENABLE(buffer_size IN INTEGER DEFAULT 20000);<br>
+                Enables message output. A NULL value of buffer_size represents unlimited buffer size.</p>
+            <p>DBMS_OUTPUT.GET_LINE (line OUT VARCHAR2, status OUT INTEGER);<br>
+                Retrieves a single line of buffered information.</p>
+            <p>DBMS_OUTPUT.GET_LINES (lines OUT CHARARR, numlines IN OUT INTEGER);<br>
+                Retrieves an array of lines from the buffer.</p>
+            <p>DBMS_OUTPUT.NEW_LINE;<br>
+                Puts an end-of-line marker.</p>
+            <p>DBMS_OUTPUT.PUT(item IN VARCHAR2);<br>
+                Places a partial line in the buffer.</p>
+            <p>DBMS_OUTPUT.PUT_LINE(item IN VARCHAR2);<br>
+                Places a line in the buffer.</p>
+            <p>Example</p>
+            <p>DECLARE <br>
+                lines dbms_output.chararr; <br>
+                num_lines number; <br>
+             BEGIN <br>
+                -- enable the buffer with default size 20000 <br>
+                dbms_output.enable; <br>
+                dbms_output.put_line('Hello Reader!'); <br>
+                dbms_output.put_line('Hope you have enjoyed the tutorials!'); <br>
+                dbms_output.put_line('Have a great time exploring pl/sql!'); <br>
+                num_lines := 3; <br>
+                dbms_output.get_lines(lines, num_lines); <br>
+                FOR i IN 1..num_lines LOOP <br>
+                   dbms_output.put_line(lines(i)); <br>
+                END LOOP; <br>
+             END; <br>
+             /  <br>
+             When the above code is executed at the SQL prompt, it produces the following result −<br>
+             Hello Reader! <br>
+             Hope you have enjoyed the tutorials! <br>
+             Have a great time exploring pl/sql! <br> 
+             PL/SQL procedure successfully completed.</p>
+            <a href="plsqldatetime.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlobjectoriented.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

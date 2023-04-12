@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Packages</h2>
+            <p>In this chapter, we will discuss the Packages in PL/SQL. Packages are schema objects that groups logically related PL/SQL types, variables, and subprograms.
+                A package will have two mandatory parts −</p>
+            <ul>
+                <li>Package specification</li>
+                <li>Package body or definition</li>
+            </ul>
+            <p>Package Specification</p>
+            <p>The specification is the interface to the package. It just DECLARES the types, variables, constants, exceptions, cursors, and subprograms that can be referenced from outside the package. In other words, it contains all information about the content of the package, but excludes the code for the subprograms.
+                All objects placed in the specification are called public objects. Any subprogram not in the package specification but coded in the package body is called a private object.
+                The following code snippet shows a package specification having a single procedure. You can have many global variables defined and multiple procedures or functions inside a package.<br>
+                CREATE PACKAGE cust_sal AS <br>
+                   PROCEDURE find_sal(c_id customers.id%type); <br>
+                END cust_sal; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Package created.</p>
+            <p>Package Body</p>
+            <p>The package body has the codes for various methods declared in the package specification and other private declarations, which are hidden from the code outside the package.
+                The CREATE PACKAGE BODY Statement is used for creating the package body. The following code snippet shows the package body declaration for the cust_sal package created above. I assumed that we already have CUSTOMERS table created in our database as mentioned in the PL/SQL - Variables</p>
+            <p>CREATE OR REPLACE PACKAGE BODY cust_sal AS  <br>   
+                PROCEDURE find_sal(c_id customers.id%TYPE) IS <br>
+                c_sal customers.salary%TYPE; <br>
+                BEGIN <br>
+                   SELECT salary INTO c_sal <br>
+                   FROM customers <br>
+                   WHERE id = c_id; <br>
+                   dbms_output.put_line('Salary: '|| c_sal); <br>
+                END find_sal; <br>
+             END cust_sal; <br>
+             /<br>
+             When the above code is executed at the SQL prompt, it produces the following result −<br>
+             Package body created.</p>
+            <p>Using the Package Elements</p>
+            <p>The package elements (variables, procedures or functions) are accessed with the following syntax −<br>
+                package_name.element_name;<br>
+                Consider, we already have created the above package in our database schema, the following program uses the find_sal method of the cust_sal package −<br>
+                DECLARE <br>
+                   code customers.id%type := &cc_id; <br>
+                BEGIN <br>
+                   cust_sal.find_sal(code); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it prompts to enter the customer ID and when you enter an ID, it displays the corresponding salary as follows −<br>
+                Enter value for cc_id: 1 <br>
+                Salary: 3000 <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Example</p>
+            <p>The following program provides a more complete package. We will use the CUSTOMERS table stored in our database with the following records −<br>
+                Select * from customers; </p>
+            <p>The Package Specification</p>
+            <p>CREATE OR REPLACE PACKAGE c_package AS <br>
+                -- Adds a customer <br>
+                PROCEDURE addCustomer(c_id   customers.id%type, <br>
+                c_name customers.Name%type, <br>
+                c_age  customers.age%type, <br>
+                c_addr customers.address%type,  <br>
+                c_sal  customers.salary%type); <br>
+                -- Removes a customer <br>
+                PROCEDURE delCustomer(c_id  customers.id%TYPE); <br>
+                --Lists all customers <br>
+                PROCEDURE listCustomer; <br>
+             END c_package; <br>
+             /<br>
+             When the above code is executed at the SQL prompt, it creates the above package and displays the following result −<br>
+             Package created.</p>
+            <p>Creating the Package Body</p>
+            <p>CREATE OR REPLACE PACKAGE BODY c_package AS <br>
+                PROCEDURE addCustomer(c_id  customers.id%type, <br>
+                   c_name customers.Name%type, <br>
+                   c_age  customers.age%type, <br>
+                   c_addr  customers.address%type,  <br>
+                   c_sal   customers.salary%type) <br>
+                IS <br>
+                BEGIN <br>
+                   INSERT INTO customers (id,name,age,address,salary) <br>
+                      VALUES(c_id, c_name, c_age, c_addr, c_sal); <br>
+                END addCustomer; <br>
+                PROCEDURE delCustomer(c_id   customers.id%type) IS <br>
+                BEGIN <br>
+                   DELETE FROM customers <br>
+                   WHERE id = c_id; <br>
+                END delCustomer;  <br>
+                PROCEDURE listCustomer IS <br>
+                CURSOR c_customers is <br>
+                   SELECT  name FROM customers; <br>
+                TYPE c_list is TABLE OF customers.Name%type; <br>
+                name_list c_list := c_list(); <br>
+                counter integer :=0; <br>
+                BEGIN <br>
+                   FOR n IN c_customers LOOP <br>
+                   counter := counter +1; <br>
+                   name_list.extend; <br>
+                   name_list(counter) := n.name; <br>
+                   dbms_output.put_line('Customer(' ||counter|| ')'||name_list(counter));<br> 
+                   END LOOP; <br>
+                END listCustomer;<br>
+             END c_package; <br>
+             /<br>
+             The above example makes use of the nested table. We will discuss the concept of nested table in the next chapter.<br>
+             When the above code is executed at the SQL prompt, it produces the following result −<br>
+             Package body created.</p>
+            <p>Using The Package</p>
+            <p>The following program uses the methods declared and defined in the package c_package.<br>
+                DECLARE <br>
+                   code customers.id%type:= 8; <br>
+                BEGIN <br>
+                   c_package.addcustomer(7, 'Rajnish', 25, 'Chennai', 3500); <br>
+                   c_package.addcustomer(8, 'Subham', 32, 'Delhi', 7500); <br>
+                   c_package.listcustomer; <br>
+                   c_package.delcustomer(code); <br>
+                   c_package.listcustomer; <br>
+                END; <br>
+                /  <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Customer(1): Ramesh  <br>
+                Customer(2): Khilan  <br>
+                Customer(3): kaushik   <br>  
+                Customer(4): Chaitali  <br>
+                Customer(5): Hardik  <br>
+                Customer(6): Komal <br>
+                Customer(7): Rajnish <br>
+                Customer(8): Subham <br>
+                Customer(1): Ramesh  <br>
+                Customer(2): Khilan  <br>
+                Customer(3): kaushik <br>    
+                Customer(4): Chaitali  <br>
+                Customer(5): Hardik  <br>
+                Customer(6): Komal<br>
+                Customer(7): Rajnish <br>
+                PL/SQL procedure successfully completed </p>
+            <a href="plsqltriggers.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlcollections.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

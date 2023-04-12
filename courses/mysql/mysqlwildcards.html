@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="mysqlcourse.html">MySQL Introduction</a>
+            <a href="mysqlrdbms.html">MySQL RDBMS</a>
+            <a href="mysqlsql.html">MySQL SQL</a>
+            <a href="mysqlselect.html">MySQL SELECT</a>
+            <a href="mysqlwhere.html">MySQL WHERE</a>
+            <a href="mysqlandornot.html">MySQL AND,OR,NOT</a>
+            <a href="mysqlorderby.html">MySQL ORDER BY</a>
+            <a href="mysqlinsertinto.html">MySQL INSERT INTO</a>
+            <a href="mysqlnullvalues.html">MySQL NULL Values</a>
+            <a href="mysqlupdate.html">MySQL UPDATE</a>
+            <a href="mysqldelete.html">MySQL DELETE</a>
+            <a href="mysqllimit.html">MySQL LIMIT</a>
+            <a href="mysqlminandmax.html">MySQL MIN and MAX</a>
+            <a href="mysqlcountavgsum.html">MySQL COUNT,AVG,SUM</a>
+            <a href="mysqllike.html">MySQL LIKE</a>
+            <a href="mysqlwildcards.html">MySQL Wildcards</a>
+            <a href="mysqlin.html">MySQL IN</a>
+            <a href="mysqlbetween.html">MySQL BETWEEN</a>
+            <a href="mysqlaliases.html">MySQL Aliases</a>
+            <a href="mysqljoins.html">MySQL Joins</a>
+            <a href="mysqlinnerjoin.html">MySQL INNER JOIN</a>
+            <a href="mysqlleftjoin.html">MySQL LEFT JOIN</a>
+            <a href="mysqlrightjoin.html">MySQL RIGHT JOIN</a>
+            <a href="mysqlcrossjoin.html">MySQL CROSS JOIN</a>
+            <a href="mysqlselfjoin.html">MySQL Self Join</a>
+            <a href="mysqlunion.html">MySQL UNION</a>
+            <a href="mysqlgroupby.html">MySQL GROUP BY</a>
+            <a href="mysqlhaving.html">MySQL HAVING</a>
+            <a href="mysqlexists.html">MySQL EXISTS</a>
+            <a href="mysqlanyall.html">MySQL ANY,ALL</a>
+            <a href="mysqlinsertselect.html">MySQL INSERT SELECT</a>
+            <a href="mysqlcase.html">MySQL CASE</a>
+            <a href="mysqlnullfunctions.html">MySQL Null Functions</a>
+            <a href="mysqlcomments.html">MySQL Comments</a>
+            <a href="mysqloperators.html">MySQL Operators</a>
+            <a href="mysqlcreatedb.html">MySQL Create DB</a>
+            <a href="mysqldropdb.html">MySQL Drop DB</a>
+            <a href="mysqlcreatetable.html">MySQL Create Table</a>
+            <a href="mysqldroptable.html">MySQL Drop Table</a>
+            <a href="mysqlaltertable.html">MySQL Alter Table</a>
+            <a href="mysqlconstraints.html">MySQL Constraints</a>
+            <a href="mysqlnotnull.html">MySQL Not Null</a>
+            <a href="mysqlunique.html">MySQL Unique</a>
+            <a href="mysqlprimarykey.html">MySQL Primary Key</a>
+            <a href="mysqlforeignkey.html">MySQL Foreign Key</a>
+            <a href="mysqlcheck.html">MySQL Check</a>
+            <a href="mysqldefault.html">MySQL Default</a>
+            <a href="mysqlcreateindex.html">MySQL Create Index</a>
+            <a href="mysqlautoincrement.html">MySQL Auto Increment</a>
+            <a href="mysqldates.html">MySQL Dates</a>
+            <a href="mysqlviews.html">MySQL Views</a>
+            <a href="mysqldatatypes.html">MySQL Data Types</a>
+            <a href="mysqlfunctions.html">MySQL Functions</a>
+            <a href="mysqlexamples.html">MySQL Examples</a>
+            <a href="mysqleditor.html">MySQL Editor</a>
+            <a href="mysqlquiz.html">MySQL Quiz</a>
+            <a href="mysqlexercises.html">MySQL Exercises</a>
+            <a href="mysqlcertificates.html">MySQL Certificate</a>
+        </div>
+        <div class="description">
+            <h2>MySQL Wildcards</h2>
+            <p>A wildcard character is used to substitute one or more characters in a string.
+                Wildcard characters are used with the LIKE operator. The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.</p>
+            <p>Wildcard Characters in MySQL</p>
+            <p>%	(Represents zero or more characters)<br>
+                _	(Represents a single character)</p>
+            <p>Using the % Wildcard</p>
+            <p>The following SQL statement selects all customers with a City starting with "ber":</p>
+            <p>Example</p>
+            <p>SELECT * FROM Customers
+                WHERE City LIKE 'ber%';</p>
+            <p>The following SQL statement selects all customers with a City containing the pattern "es": </p>
+            <p>Example</p>
+            <p>SELECT * FROM Customers
+                WHERE City LIKE '%es%';</p>
+            <p>Using the _ Wildcard</p>
+            <p>The following SQL statement selects all customers with a City starting with any character, followed by "ondon":</p>
+            <p>Example</p>
+            <p>SELECT * FROM Customers
+                WHERE City LIKE '_ondon';</p>
+            <p>The following SQL statement selects all customers with a City starting with "L", followed by any character, followed by "n", followed by any character, followed by "on":</p>
+            <p>Example</p>
+            <p>SELECT * FROM Customers
+                WHERE City LIKE 'L_n_on';</p>
+            <a href="mysqllike.html" class="next">&lt; Previous Page</a>
+            <a href="mysqlin.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

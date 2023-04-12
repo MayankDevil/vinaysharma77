@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Variables</h2>
+            <p>In this chapter, we will discuss Variables in Pl/SQL. A variable is nothing but a name given to a storage area that our programs can manipulate. Each variable in PL/SQL has a specific data type, which determines the size and the layout of the variable's memory; the range of values that can be stored within that memory and the set of operations that can be applied to the variable.
+                The name of a PL/SQL variable consists of a letter optionally followed by more letters, numerals, dollar signs, underscores, and number signs and should not exceed 30 characters. By default, variable names are not case-sensitive. You cannot use a reserved PL/SQL keyword as a variable name.         
+                PL/SQL programming language allows to define various types of variables, such as date time data types, records, collections, etc. which we will cover in subsequent chapters. For this chapter, let us study only basic variable types.</p>
+            <p>Variable Declaration in PL/SQL</p>
+            <p>PL/SQL variables must be declared in the declaration section or in a package as a global variable. When you declare a variable, PL/SQL allocates memory for the variable's value and the storage location is identified by the variable name.
+                The syntax for declaring a variable is −<br>                
+                variable_name [CONSTANT] datatype [NOT NULL] [:= | DEFAULT initial_value] <br>
+                Where, variable_name is a valid identifier in PL/SQL, datatype must be a valid PL/SQL data type or any user defined data type which we already have discussed in the last chapter. Some valid variable declarations along with their definition are shown below −<br>
+                sales number(10, 2); <br>
+                pi CONSTANT double precision := 3.1415; <br>
+                name varchar2(25); <br>
+                address varchar2(100);<br>
+                When you provide a size, scale or precision limit with the data type, it is called a constrained declaration. Constrained declarations require less memory than unconstrained declarations. For example −<br>         
+                sales number(10, 2); <br>
+                name varchar2(25); <br>
+                address varchar2(100); </p>
+            <p>Initializing Variables in PL/SQL</p>
+            <p>Whenever you declare a variable, PL/SQL assigns it a default value of NULL. If you want to initialize a variable with a value other than the NULL value, you can do so during the declaration, using either of the following −</p>
+            <ul>
+                <li>The DEFAULT keyword</li>
+                <li>The assignment operator</li>
+            </ul>
+            <p>For example −<br>
+                counter binary_integer := 0; <br>
+                greetings varchar2(20) DEFAULT 'Have a Good Day';<br>
+                You can also specify that a variable should not have a NULL value using the NOT NULL constraint. If you use the NOT NULL constraint, you must explicitly assign an initial value for that variable.
+                It is a good programming practice to initialize variables properly otherwise, sometimes programs would produce unexpected results. Try the following example which makes use of various types of variables −<br>
+                DECLARE <br>
+                   a integer := 10; <br>
+                   b integer := 20; <br>
+                   c integer; <br>
+                   f real; <br>
+                BEGIN <br>
+                   c := a + b; <br>
+                   dbms_output.put_line('Value of c: ' || c); <br>
+                   f := 70.0/3.0; <br>
+                   dbms_output.put_line('Value of f: ' || f); <br>
+                END; <br>
+                /  <br>
+                When the above code is executed, it produces the following result −<br>
+                Value of c: 30 <br>
+                Value of f: 23.333333333333333333  <br>
+                PL/SQL procedure successfully completed.</p>
+            <p>Variable Scope in PL/SQL</p>
+            <p>PL/SQL allows the nesting of blocks, i.e., each program block may contain another inner block. If a variable is declared within an inner block, it is not accessible to the outer block. However, if a variable is declared and accessible to an outer block, it is also accessible to all nested inner blocks. There are two types of variable scope −</p>
+            <ul>
+                <li>Local variables − Variables declared in an inner block and not accessible to outer blocks.</li>
+                <li>Global variables − Variables declared in the outermost block or a package.</li>
+            </ul>
+            <p>Following example shows the usage of Local and Global variables in its simple form −<br>
+                DECLARE <br>
+                   -- Global variables  <br>
+                   num1 number := 95;  <br>
+                   num2 number := 85;  <br>
+                BEGIN  <br>
+                   dbms_output.put_line('Outer Variable num1: ' || num1); <br>
+                   dbms_output.put_line('Outer Variable num2: ' || num2); <br>
+                   DECLARE  <br>
+                      -- Local variables <br>
+                      num1 number := 195;  <br>
+                      num2 number := 185;  <br>
+                   BEGIN  <br>
+                      dbms_output.put_line('Inner Variable num1: ' || num1); <br>
+                      dbms_output.put_line('Inner Variable num2: ' || num2); <br>
+                   END;  <br>
+                END; <br>
+                / <br>
+                When the above code is executed, it produces the following result −<br>
+                Outer Variable num1: 95 <br>
+                Outer Variable num2: 85 <br>
+                Inner Variable num1: 195 <br>
+                Inner Variable num2: 185  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Assigning SQL Query Results to PL/SQL Variables</p>
+            <p>You can use the SELECT INTO statement of SQL to assign values to PL/SQL variables. For each item in the SELECT list, there must be a corresponding, type-compatible variable in the INTO list. The following example illustrates the concept. Let us create a table named CUSTOMERS −</p>
+            <p>CREATE TABLE CUSTOMERS( <br>
+                ID   INT NOT NULL, <br>
+                NAME VARCHAR (20) NOT NULL, <br>
+                AGE INT NOT NULL, <br>
+                ADDRESS CHAR (25), <br>
+                SALARY   DECIMAL (18, 2),     <br>   
+                PRIMARY KEY (ID) <br>
+             );  <br>
+             Table Created<br>  
+             Let us now insert some values in the table −<br>
+             INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)<br> 
+             VALUES (1, 'Ramesh', 32, 'Ahmedabad', 2000.00 );  <br>
+             INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+             VALUES (2, 'Khilan', 25, 'Delhi', 1500.00 );  <br>
+             INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)<br> 
+             VALUES (3, 'kaushik', 23, 'Kota', 2000.00 );<br>
+             INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY)<br> 
+             VALUES (4, 'Chaitali', 25, 'Mumbai', 6500.00 ); <br>
+             INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+             VALUES (5, 'Hardik', 27, 'Bhopal', 8500.00 );  <br>
+             INSERT INTO CUSTOMERS (ID,NAME,AGE,ADDRESS,SALARY) <br>
+             VALUES (6, 'Komal', 22, 'MP', 4500.00 ); <br>
+             The following program assigns values from the above table to PL/SQL variables using the SELECT INTO clause of SQL −<br>
+             DECLARE <br>
+                c_id customers.id%type := 1; <br>
+                c_name  customers.name%type; <br>
+                c_addr customers.address%type; <br>
+                c_sal  customers.salary%type; <br>
+             BEGIN <br>
+                SELECT name, address, salary INTO c_name, c_addr, c_sal <br>
+                FROM customers <br>
+                WHERE id = c_id;  <br>
+                dbms_output.put_line <br>
+                ('Customer ' ||c_name || ' from ' || c_addr || ' earns ' || c_sal); <br>
+             END; <br>
+             /  <br>
+             When the above code is executed, it produces the following result −<br>
+             Customer Ramesh from Ahmedabad earns 2000  <br>
+             PL/SQL procedure completed successfully</p>
+            <a href="plsqldatatypes.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlconstantsandliterals.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

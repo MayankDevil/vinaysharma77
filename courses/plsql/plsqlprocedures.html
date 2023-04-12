@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Procedures</h2>
+            <p>In this chapter, we will discuss Procedures in PL/SQL. A subprogram is a program unit/module that performs a particular task. These subprograms are combined to form larger programs. This is basically called the 'Modular design'. A subprogram can be invoked by another subprogram or program which is called the calling program.<br>
+                A subprogram can be created −</p>
+            <ul>
+                <li>At the schema level</li>
+                <li>Inside a package</li>
+                <li>Inside a PL/SQL block</li>
+            </ul>
+            <p>At the schema level, subprogram is a standalone subprogram. It is created with the CREATE PROCEDURE or the CREATE FUNCTION statement. It is stored in the database and can be deleted with the DROP PROCEDURE or DROP FUNCTION statement.
+                A subprogram created inside a package is a packaged subprogram. It is stored in the database and can be deleted only when the package is deleted with the DROP PACKAGE statement. We will discuss packages in the chapter 'PL/SQL - Packages'.
+                PL/SQL subprograms are named PL/SQL blocks that can be invoked with a set of parameters. PL/SQL provides two kinds of subprograms −</p>
+            <ul>
+                <li>Functions − These subprograms return a single value; mainly used to compute and return a value.</li>
+                <li>Procedures − These subprograms do not return a value directly; mainly used to perform an action.</li>
+            </ul>
+            <p>Parts of a PL/SQL Subprogram</p>
+            <p>Each PL/SQL subprogram has a name, and may also have a parameter list. Like anonymous PL/SQL blocks, the named blocks will also have the following three parts −</p>
+            <p>Declarative Part<br>
+                It is an optional part. However, the declarative part for a subprogram does not start with the DECLARE keyword. It contains declarations of types, cursors, constants, variables, exceptions, and nested subprograms. These items are local to the subprogram and cease to exist when the subprogram completes execution.</p>
+            <p>Executable Part<br>
+                This is a mandatory part and contains statements that perform the designated action.</p>
+            <p>Exception-handling<br>
+                This is again an optional part. It contains the code that handles run-time errors.</p>
+            <p>Creating a Procedure</p>
+            <p>A procedure is created with the CREATE OR REPLACE PROCEDURE statement. The simplified syntax for the CREATE OR REPLACE PROCEDURE statement is as follows −<br>
+                CREATE [OR REPLACE] PROCEDURE procedure_name <br>
+                [(parameter_name [IN | OUT | IN OUT] type [, ...])] <br>
+                {IS | AS} <br>
+                BEGIN <br>
+                  &lt; procedure_body &gt;<br> 
+                END procedure_name; <br>
+                Where,</p>
+            <ul>
+                <li>procedure-name specifies the name of the procedure.</li>
+                <li>[OR REPLACE] option allows the modification of an existing procedure.</li>
+                <li>The optional parameter list contains name, mode and types of the parameters. IN represents the value that will be passed from outside and OUT represents the parameter that will be used to return a value outside of the procedure.</li>
+                <li>procedure-body contains the executable part.</li>
+                <li>The AS keyword is used instead of the IS keyword for creating a standalone procedure.</li>
+            </ul>
+            <p>Example</p>
+            <p>The following example creates a simple procedure that displays the string 'Hello World!' on the screen when executed.<br>
+                CREATE OR REPLACE PROCEDURE greetings <br>
+                AS <br>
+                BEGIN <br>
+                   dbms_output.put_line('Hello World!'); <br>
+                END; <br>
+                /<br>
+                When the above code is executed using the SQL prompt, it will produce the following result −<br>
+                Procedure created.</p>
+            <p>Executing a Standalone Procedure</p>
+            <p>A standalone procedure can be called in two ways −</p>
+            <ul>
+                <li>Using the EXECUTE keyword</li>
+                <li>Calling the name of the procedure from a PL/SQL block</li>
+            </ul>
+            <p>The above procedure named 'greetings' can be called with the EXECUTE keyword as −<br>
+                EXECUTE greetings;<br>
+                The above call will display −<br>
+                Hello World<br>
+                PL/SQL procedure successfully completed.<br>
+                The procedure can also be called from another PL/SQL block −<br>
+                BEGIN <br>
+                   greetings;<br> 
+                END; <br>
+                /<br>
+                The above call will display −<br>
+                Hello World  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Deleting a Standalone Procedure</p>
+            <p>A standalone procedure is deleted with the DROP PROCEDURE statement. Syntax for deleting a procedure is −<br>
+                DROP PROCEDURE procedure-name; <br>
+                You can drop the greetings procedure by using the following statement −<br>
+                DROP PROCEDURE greetings; </p>
+            <p>Parameter Modes in PL/SQL Subprograms</p>
+            <p>IN<br>
+                An IN parameter lets you pass a value to the subprogram. It is a read-only parameter. Inside the subprogram, an IN parameter acts like a constant. It cannot be assigned a value. You can pass a constant, literal, initialized variable, or expression as an IN parameter. You can also initialize it to a default value; however, in that case, it is omitted from the subprogram call. It is the default mode of parameter passing. Parameters are passed by reference.</p>
+            <p>OUT<br>
+                An OUT parameter returns a value to the calling program. Inside the subprogram, an OUT parameter acts like a variable. You can change its value and reference the value after assigning it. The actual parameter must be variable and it is passed by value.</p>
+            <p>IN OUT<br>
+                An IN OUT parameter passes an initial value to a subprogram and returns an updated value to the caller. It can be assigned a value and the value can be read. 
+                The actual parameter corresponding to an IN OUT formal parameter must be a variable, not a constant or an expression. Formal parameter must be assigned a value. Actual parameter is passed by value.</p>
+            <p>IN & OUT Mode Example 1</p>
+            <p>This program finds the minimum of two values. Here, the procedure takes two numbers using the IN mode and returns their minimum using the OUT parameters.<br>
+                DECLARE <br>
+                   a number; <br>
+                   b number; <br>
+                   c number;<br>
+                PROCEDURE findMin(x IN number, y IN number, z OUT number) IS <br>
+                BEGIN <br>
+                   IF x &lt; y THEN <br>
+                      z:= x; <br>
+                   ELSE <br>
+                      z:= y; <br>
+                   END IF; <br>
+                END;   <br>
+                BEGIN <br>
+                   a:= 23; <br>
+                   b:= 45; <br>
+                   findMin(a, b, c); <br>
+                   dbms_output.put_line(' Minimum of (23, 45) : ' || c); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Minimum of (23, 45) : 23  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>IN & OUT Mode Example 2</p>
+            <p>This procedure computes the square of value of a passed value. This example shows how we can use the same parameter to accept a value and then return another result.<br>
+                DECLARE <br>
+                   a number; <br>
+                PROCEDURE squareNum(x IN OUT number) IS <br>
+                BEGIN <br>
+                  x := x * x; <br>
+                END;  <br>
+                BEGIN <br>
+                   a:= 23; <br>
+                   squareNum(a); <br>
+                   dbms_output.put_line(' Square of (23): ' || a); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Square of (23): 529 <br>
+                PL/SQL procedure successfully completed.</p>
+            <p>Methods for Passing Parameters</p>
+            <p>Actual parameters can be passed in three ways −</p>
+            <ul>
+                <li>Positional notation</li>
+                <li>Named notation</li>
+                <li>Mixed notation</li>
+            </ul>
+            <p>Positional Notation</p>
+            <p>In positional notation, you can call the procedure as −<br>
+                findMin(a, b, c, d);<br>
+                In positional notation, the first actual parameter is substituted for the first formal parameter; the second actual parameter is substituted for the second formal parameter, and so on. So, a is substituted for x, b is substituted for y, c is substituted for z and d is substituted for m.</p>
+            <p>Named Notation</p>
+            <p>In named notation, the actual parameter is associated with the formal parameter using the arrow symbol ( => ). The procedure call will be like the following −<br>
+                findMin(x => a, y => b, z => c, m => d);</p>
+            <p>Mixed Notation</p>
+            <p>In mixed notation, you can mix both notations in procedure call; however, the positional notation should precede the named notation.<br>
+                The following call is legal −<br>
+                findMin(a, b, c, m => d);<br>
+                However, this is not legal:<br>
+                findMin(x => a, b, c, d); </p>
+            <a href="plsqlarrays.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlfunctions.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

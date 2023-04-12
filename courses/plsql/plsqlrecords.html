@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Records</h2>
+            <p>In this chapter, we will discuss Records in PL/SQL. A record is a data structure that can hold data items of different kinds. Records consist of different fields, similar to a row of a database table.
+                For example, you want to keep track of your books in a library. You might want to track the following attributes about each book, such as Title, Author, Subject, Book ID. A record containing a field for each of these items allows treating a BOOK as a logical unit and allows you to organize and represent its information in a better way.
+                PL/SQL can handle the following types of records −</p>
+            <ul>
+                <li>Table-based</li>
+                <li>Cursor-based records</li>
+                <li>User-defined records</li>
+            </ul>
+            <p>Table-Based Records</p>
+            <p>The %ROWTYPE attribute enables a programmer to create table-based and cursorbased records.
+                The following example illustrates the concept of table-based records. We will be using the CUSTOMERS table we had created and used in the previous chapters −<br>
+                DECLARE<br> 
+                   customer_rec customers%rowtype; <br>
+                BEGIN <br>
+                   SELECT * into customer_rec <br>
+                   FROM customers <br>
+                   WHERE id = 5;  <br>
+                   dbms_output.put_line('Customer ID: ' || customer_rec.id); <br>
+                   dbms_output.put_line('Customer Name: ' || customer_rec.name); <br>
+                   dbms_output.put_line('Customer Address: ' || customer_rec.address); <br>
+                   dbms_output.put_line('Customer Salary: ' || customer_rec.salary); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Customer ID: 5 <br>
+                Customer Name: Hardik<br> 
+                Customer Address: Bhopal <br>
+                Customer Salary: 9000 <br>
+                PL/SQL procedure successfully completed.</p>
+            <p>Cursor-Based Records</p>
+            <p>The following example illustrates the concept of cursor-based records. We will be using the CUSTOMERS table we had created and used in the previous chapters −<br>
+                DECLARE<br> 
+                   CURSOR customer_cur is <br>
+                      SELECT id, name, address  <br>
+                      FROM customers; <br>
+                   customer_rec customer_cur%rowtype; <br>
+                BEGIN <br>
+                   OPEN customer_cur; <br>
+                   LOOP <br>
+                      FETCH customer_cur into customer_rec; <br>
+                      EXIT WHEN customer_cur%notfound; <br>
+                      DBMS_OUTPUT.put_line(customer_rec.id || ' ' || customer_rec.name); <br>
+                   END LOOP; <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                1 Ramesh <br>
+                2 Khilan <br>
+                3 kaushik <br>
+                4 Chaitali <br>
+                5 Hardik <br>
+                6 Komal  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>User-Defined Records</p>
+            <p>PL/SQL provides a user-defined record type that allows you to define the different record structures. These records consist of different fields. Suppose you want to keep track of your books in a library. You might want to track the following attributes about each book −</p>
+            <ul>
+                <li>Title</li>
+                <li>Author</li>
+                <li>Subject</li>
+                <li>Book ID</li>
+            </ul>
+            <p>Defining a Record</p>
+            <p>The record type is defined as −<br>
+                TYPE <br>
+                type_name IS RECORD <br>
+                  ( field_name1  datatype1  [NOT NULL]  [:= DEFAULT EXPRESSION], <br>
+                   field_name2   datatype2   [NOT NULL]  [:= DEFAULT EXPRESSION], <br>
+                   ... <br>
+                   field_nameN  datatypeN  [NOT NULL]  [:= DEFAULT EXPRESSION); <br>
+                record-name  type_name;<br>
+                The Book record is declared in the following way −<br>
+                DECLARE <br>
+                TYPE books IS RECORD <br>
+                (title  varchar(50), <br>
+                   author  varchar(50), <br>
+                   subject varchar(100), <br>
+                   book_id   number); <br>
+                book1 books; <br>
+                book2 books; </p>
+            <p>Accessing Fields</p>
+            <p>To access any field of a record, we use the dot (.) operator. The member access operator is coded as a period between the record variable name and the field that we wish to access. Following is an example to explain the usage of record −<br>
+                DECLARE <br>
+                   type books is record <br>
+                      (title varchar(50), <br>
+                      author varchar(50), <br>
+                      subject varchar(100), <br>
+                      book_id number); <br>
+                   book1 books; <br>
+                   book2 books; <br>
+                BEGIN <br>
+                   -- Book 1 specification <br>
+                   book1.title  := 'C Programming'; <br>
+                   book1.author := 'Nuha Ali ';  <br>
+                   book1.subject := 'C Programming Tutorial'; <br>
+                   book1.book_id := 6495407;  <br>
+                   -- Book 2 specification <br>
+                   book2.title := 'Telecom Billing'; <br>
+                   book2.author := 'Zara Ali'; <br>
+                   book2.subject := 'Telecom Billing Tutorial'; <br>
+                   book2.book_id := 6495700;  <br>
+                  -- Print book 1 record <br>
+                   dbms_output.put_line('Book 1 title : '|| book1.title); <br>
+                   dbms_output.put_line('Book 1 author : '|| book1.author); <br>
+                   dbms_output.put_line('Book 1 subject : '|| book1.subject); <br>
+                   dbms_output.put_line('Book 1 book_id : ' || book1.book_id); <br>
+                   -- Print book 2 record <br>
+                   dbms_output.put_line('Book 2 title : '|| book2.title); <br>
+                   dbms_output.put_line('Book 2 author : '|| book2.author); <br>
+                   dbms_output.put_line('Book 2 subject : '|| book2.subject); <br>
+                   dbms_output.put_line('Book 2 book_id : '|| book2.book_id); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Book 1 title : C Programming <br>
+                Book 1 author : Nuha Ali <br>
+                Book 1 subject : C Programming Tutorial <br>
+                Book 1 book_id : 6495407 <br>
+                Book 2 title : Telecom Billing <br>
+                Book 2 author : Zara Ali <br>
+                Book 2 subject : Telecom Billing Tutorial <br>
+                Book 2 book_id : 6495700  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Records as Subprogram Parameters</p>
+            <p>You can pass a record as a subprogram parameter just as you pass any other variable. You can also access the record fields in the same way as you accessed in the above example −<br>
+                DECLARE<br> 
+                   type books is record <br>
+                      (title  varchar(50), <br>
+                      author  varchar(50), <br>
+                      subject varchar(100), <br>
+                      book_id   number); <br>
+                   book1 books; <br>
+                   book2 books;  <br>
+                PROCEDURE printbook (book books) IS <br>
+                BEGIN <br>
+                   dbms_output.put_line ('Book  title :  ' || book.title); <br>
+                   dbms_output.put_line('Book  author : ' || book.author); <br>
+                   dbms_output.put_line( 'Book  subject : ' || book.subject); <br>
+                   dbms_output.put_line( 'Book book_id : ' || book.book_id); <br>
+                END; <br>
+                BEGIN <br>
+                   -- Book 1 specification <br>
+                   book1.title  := 'C Programming'; <br>
+                   book1.author := 'Nuha Ali ';  <br>
+                   book1.subject := 'C Programming Tutorial'; <br>
+                   book1.book_id := 6495407;<br>
+                   -- Book 2 specification <br>
+                   book2.title := 'Telecom Billing'; <br>
+                   book2.author := 'Zara Ali'; <br>
+                   book2.subject := 'Telecom Billing Tutorial'; <br>
+                   book2.book_id := 6495700;  <br>
+                   -- Use procedure to print book info <br>
+                   printbook(book1); <br>
+                   printbook(book2); <br>
+                END; <br>
+                /  <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Book  title : C Programming <br>
+                Book  author : Nuha Ali <br>
+                Book subject : C Programming Tutorial <br>
+                Book  book_id : 6495407 <br>
+                Book title : Telecom Billing <br>
+                Book author : Zara Ali <br>
+                Book subject : Telecom Billing Tutorial <br>
+                Book book_id : 6495700  <br>
+                PL/SQL procedure successfully completed. </p>
+            <a href="plsqlcursors.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlexceptions.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

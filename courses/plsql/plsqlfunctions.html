@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Functions</h2>
+            <p>In this chapter, we will discuss the functions in PL/SQL. A function is same as a procedure except that it returns a value. Therefore, all the discussions of the previous chapter are true for functions too.</p>
+            <p>Creating a Function</p>
+            <p>A standalone function is created using the CREATE FUNCTION statement. The simplified syntax for the CREATE OR REPLACE PROCEDURE statement is as follows −<br>
+                CREATE [OR REPLACE] FUNCTION function_name <br>
+                [(parameter_name [IN | OUT | IN OUT] type [, ...])] <br>
+                RETURN return_datatype <br>
+                {IS | AS} <br>
+                BEGIN <br>
+                   &lt; function_body &gt; <br>
+                END [function_name];<br>
+                Where,</p>
+            <ul>
+                <li>function-name specifies the name of the function.</li>
+                <li>[OR REPLACE] option allows the modification of an existing function.</li>
+                <li>The optional parameter list contains name, mode and types of the parameters. IN represents the value that will be passed from outside and OUT represents the parameter that will be used to return a value outside of the procedure.</li>
+                <li>The function must contain a return statement.</li>
+                <li>The RETURN clause specifies the data type you are going to return from the function.</li>
+                <li>function-body contains the executable part.</li>
+                <li>The AS keyword is used instead of the IS keyword for creating a standalone function.</li>
+            </ul>
+            <p>Example</p>
+            <p>The following example illustrates how to create and call a standalone function. This function returns the total number of CUSTOMERS in the customers table.We will use the CUSTOMERS table, which we had created in the PL/SQL Variables<br>
+                Select * from customers; <br>
+                CREATE OR REPLACE FUNCTION totalCustomers <br>
+                RETURN number IS <br>
+                   total number(2) := 0; <br>
+                BEGIN <br>
+                   SELECT count(*) into total <br>
+                   FROM customers; <br>
+                   RETURN total; <br>
+                END; <br>
+                / <br>
+                When the above code is executed using the SQL prompt, it will produce the following result −<br>
+                Function created.</p>
+            <p>Calling a Function</p>
+            <p>While creating a function, you give a definition of what the function has to do. To use a function, you will have to call that function to perform the defined task. When a program calls a function, the program control is transferred to the called function.
+                A called function performs the defined task and when its return statement is executed or when the last end statement is reached, it returns the program control back to the main program.
+                To call a function, you simply need to pass the required parameters along with the function name and if the function returns a value, then you can store the returned value. Following program calls the function totalCustomers from an anonymous block −<br>                
+                DECLARE <br>
+                   c number(2); <br>
+                BEGIN <br>
+                   c := totalCustomers(); <br>
+                   dbms_output.put_line('Total no. of Customers: ' || c); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Total no. of Customers: 6  <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>Example</p>
+            <p>The following example demonstrates Declaring, Defining, and Invoking a Simple PL/SQL Function that computes and returns the maximum of two values.<br>
+                DECLARE <br>
+                   a number; <br>
+                   b number; <br>
+                   c number; <br>
+                FUNCTION findMax(x IN number, y IN number) <br> 
+                RETURN number <br>
+                IS <br>
+                    z number; <br>
+                BEGIN <br>
+                   IF x > y THEN <br>
+                      z:= x; <br>
+                   ELSE <br>
+                      Z:= y; <br>
+                   END IF;  <br>
+                   RETURN z; <br>
+                END; <br>
+                BEGIN <br>
+                   a:= 23; <br>
+                   b:= 45;  <br>
+                   c := findMax(a, b); <br>
+                   dbms_output.put_line(' Maximum of (23,45): ' || c); <br>
+                END; <br>
+                / <br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Maximum of (23,45): 45   <br>
+                PL/SQL procedure successfully completed. </p>
+            <p>PL/SQL Recursive Functions</p>
+            <p>We have seen that a program or subprogram may call another subprogram. When a subprogram calls itself, it is referred to as a recursive call and the process is known as recursion.
+                To illustrate the concept, let us calculate the factorial of a number. Factorial of a number n is defined as −<br>                
+                n! = n*(n-1)! <br>
+                   = n*(n-1)*(n-2)! <br>
+                      ... <br>
+                   = n*(n-1)*(n-2)*(n-3)... 1 <br>
+                The following program calculates the factorial of a given number by calling itself recursively −<br>
+                DECLARE <br>
+                   num number; <br>
+                   factorial number;  <br>
+                FUNCTION fact(x number) <br>
+                RETURN number  <br>
+                IS <br>
+                   f number; <br>
+                BEGIN <br>
+                   IF x=0 THEN <br>
+                      f := 1; <br>
+                   ELSE <br>
+                      f := x * fact(x-1); <br>
+                   END IF; <br>
+                RETURN f; <br>
+                END;  <br>
+                BEGIN <br>
+                   num:= 6; <br>
+                   factorial := fact(num); <br>
+                   dbms_output.put_line(' Factorial '|| num || ' is ' || factorial); <br>
+                END; <br>
+                /<br>
+                When the above code is executed at the SQL prompt, it produces the following result −<br>
+                Factorial 6 is 720 <br>
+                PL/SQL procedure successfully completed.</p>
+            <a href="plsqlprocedures.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlcursors.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

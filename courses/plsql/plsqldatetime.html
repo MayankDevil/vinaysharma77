@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Date & Time</h2>
+            <p>In this chapter, we will discuss the Date and Time in PL/SQL. There are two classes of date and time related data types in PL/SQL −</p>
+            <ul>
+                <li>Datetime data types</li>
+                <li>Interval data types</li>
+            </ul>
+            <p>The Datetime data types are −</p>
+            <ul>
+                <li>DATE</li>
+                <li>TIMESTAMP</li>
+                <li>TIMESTAMP WITH TIME ZONE</li>
+                <li>TIMESTAMP WITH LOCAL TIME ZONE</li>
+            </ul>
+            <p>The Interval data types are −</p>
+            <ul>
+                <li>INTERVAL YEAR TO MONTH</li>
+                <li>INTERVAL DAY TO SECOND</li>
+            </ul>
+            <p>Field Values for Datetime and Interval Data Types</p>
+            <p>Both datetime and interval data types consist of fields. The values of these fields determine the value of the data type. The following table lists the fields and their possible values for datetimes and intervals.</p>
+            <p>The Datetime Data Types and Functions</p>
+            <p>Following are the Datetime data types −</p>
+            <p>DATE<br>
+            It stores date and time information in both character and number datatypes. It is made of information on century, year, month, date, hour, minute, and second. It is specified as −</p>
+            <p>TIMESTAMP<br>
+                It is an extension of the DATE data type. It stores the year, month, and day of the DATE datatype, along with hour, minute, and second values. It is useful for storing precise time values.</p>
+            <p>TIMESTAMP WITH TIME ZONE<br>
+                It is a variant of TIMESTAMP that includes a time zone region name or a time zone offset in its value. The time zone offset is the difference (in hours and minutes) between local time and UTC. This data type is useful for collecting and evaluating date information across geographic regions.</p>
+            <p>TIMESTAMP WITH LOCAL TIME ZONE<br>
+                It is another variant of TIMESTAMP that includes a time zone offset in its value.</p>
+            <p>ADD_MONTHS(x, y);<br>
+                Adds y months to x.</p>
+            <p>LAST_DAY(x);<br>
+                Returns the last day of the month.</p>
+            <p>MONTHS_BETWEEN(x, y);<br>
+                Returns the number of months between x and y.</p>
+            <p>NEXT_DAY(x, day);<br>
+                Returns the datetime of the next day after x.</p>
+            <p>NEW_TIME;<br>
+                Returns the time/day value from a time zone specified by the user.</p>
+            <p>ROUND(x [, unit]);<br>
+                Rounds x.</p>
+            <p>SYSDATE();<br>
+                Returns the current datetime.</p>
+            <p>TRUNC(x [, unit]);<br>
+                Truncates x.</p>
+            <p>Timestamp functions (where, x has a timestamp value) −</p>
+            <p>CURRENT_TIMESTAMP();<br>
+                Returns a TIMESTAMP WITH TIME ZONE containing the current session time along with the session time zone.</p>
+            <p>EXTRACT({ YEAR | MONTH | DAY | HOUR | MINUTE | SECOND } | { TIMEZONE_HOUR | TIMEZONE_MINUTE } | { TIMEZONE_REGION | } TIMEZONE_ABBR ) FROM x<br>
+                Extracts and returns a year, month, day, hour, minute, second, or time zone from x.</p>
+            <p>FROM_TZ(x, time_zone);<br>
+                Converts the TIMESTAMP x and the time zone specified by time_zone to a TIMESTAMP WITH TIMEZONE.</p>
+            <p>LOCALTIMESTAMP();<br>
+                Returns a TIMESTAMP containing the local time in the session time zone.</p>
+            <p>SYSTIMESTAMP();<br>
+                Returns a TIMESTAMP WITH TIME ZONE containing the current database time along with the database time zone.</p>
+            <p>SYS_EXTRACT_UTC(x);<br>
+                Converts the TIMESTAMP WITH TIMEZONE x to a TIMESTAMP containing the date and time in UTC.</p>
+            <p>TO_TIMESTAMP(x, [format]);<br>
+                Converts the string x to a TIMESTAMP.</p>
+            <p>TO_TIMESTAMP_TZ(x, [format]);<br>
+                Converts the string x to a TIMESTAMP WITH TIMEZONE.</p>
+            <p>Examples</p>
+            <p>The following code snippets illustrate the use of the above functions −<br>
+                Example 1<br>
+                SELECT SYSDATE FROM DUAL;<br> 
+                Output −<br>
+                08/31/2012 5:25:34 PM<br> 
+                Example 2<br>
+                SELECT TO_CHAR(CURRENT_DATE, 'DD-MM-YYYY HH:MI:SS') FROM DUAL; <br>
+                Output −<br>
+                31-08-2012 05:26:14<br>
+                Example 3<br>
+                SELECT ADD_MONTHS(SYSDATE, 5) FROM DUAL;<br>
+                Output −<br>
+                01/31/2013 5:26:31 PM <br>
+                Example 4<br>
+                SELECT LOCALTIMESTAMP FROM DUAL; <br>
+                Output −<br>
+                8/31/2012 5:26:55.347000 PM </p>
+            <p>The Interval Data Types and Functions</p>
+            <p>Following are the Interval data types −</p>
+            <ul>
+                <li>IINTERVAL YEAR TO MONTH − It stores a period of time using the YEAR and MONTH datetime fields.</li>
+                <li>INTERVAL DAY TO SECOND − It stores a period of time in terms of days, hours, minutes, and seconds.</li>
+            </ul>
+            <p>Interval Functions</p>
+            <p>NUMTODSINTERVAL(x, interval_unit);<br>
+                Converts the number x to an INTERVAL DAY TO SECOND.</p>
+            <p>NUMTOYMINTERVAL(x, interval_unit);<br>
+                Converts the number x to an INTERVAL YEAR TO MONTH.</p>
+            <p>TO_DSINTERVAL(x);<br>
+                Converts the string x to an INTERVAL DAY TO SECOND.</p>
+            <p>TO_YMINTERVAL(x);<br>
+                Converts the string x to an INTERVAL YEAR TO MONTH.</p>
+            <a href="plsqltransactions.html" class="next">&lt; Previous Page</a>
+            <a href="plsqldbmsoutput.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Thoughts</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-head">
+            <div class="login-signup">
+                <a href="#" class="login">Log in</a>
+                <a href="#" class="signup">Sign up</a>
+            </div>
+            <div class="switch-light">
+                <ion-icon name="contrast-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="bottom-head">
+            <div class="brand-name">
+                Coding Thoughts
+            </div>
+            <div class="nav-links animate__animated animate__pulse">
+                <a href="../../index.html">Home</a>
+                <a href="#">Courses</a>
+                <a href="#">Exercises</a>
+                <a href="#">Projects</a>
+                <a href="#">Feedback</a>
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="box">
+        <div class="topics">
+            <a href="plsqlcourse.html">PL/SQL Introduction</a>
+            <a href="plsqlenvironment.html">PL/SQL Environment</a>
+            <a href="plsqlbasicsyntax.html">PL/SQL Basic Syntax</a>
+            <a href="plsqldatatypes.html">PL/SQL Data Types</a>
+            <a href="plsqlvariables.html">PL/SQL Variables</a>
+            <a href="plsqlconstantsandliterals.html">PL/SQL Constants and Literals</a>
+            <a href="plsqloperators.html">PL/SQL Operators</a>
+            <a href="plsqlconditions.html">PL/SQL Conditions</a>
+            <a href="plsqlloops.html">PL/SQL Loops</a>
+            <a href="plsqlstrings.html">PL/SQL Strings</a>
+            <a href="plsqlarrays.html">PL/SQL Arrays</a>
+            <a href="plsqlprocedures.html">PL/SQL Procedures</a>
+            <a href="plsqlfunctions.html">PL/SQL Functions</a>
+            <a href="plsqlcursors.html">PL/SQL Cursors</a>
+            <a href="plsqlrecords.html">PL/SQL Records</a>
+            <a href="plsqlexceptions.html">PL/SQL Exceptions</a>
+            <a href="plsqltriggers.html">PL/SQL Triggers</a>
+            <a href="plsqlpackages.html">PL/SQL Packages</a>
+            <a href="plsqlcollections.html">PL/SQL Collections</a>
+            <a href="plsqltransactions.html">PL/SQL Transactions</a>
+            <a href="plsqldatetime.html">PL/SQL Date & Time</a>
+            <a href="plsqldbmsoutput.html">PL/SQL DBMS Output</a>
+            <a href="plsqlobjectoriented.html">PL/SQL Object Oriented</a>            
+        </div>
+        <div class="description">
+            <h2>PL/SQL - Operators</h2>
+            <p>In this chapter, we will discuss operators in PL/SQL. An operator is a symbol that tells the compiler to perform specific mathematical or logical manipulation. PL/SQL language is rich in built-in operators and provides the following types of operators −</p>
+            <ul>
+                <li>Arithmetic operators</li>
+                <li>Relational operators</li>
+                <li>Comparison operators</li>
+                <li>Logical operators</li>
+                <li>String operators</li>
+            </ul>
+            <p>Here, we will understand the arithmetic, relational, comparison and logical operators one by one. The String operators will be discussed in a later chapter − PL/SQL - Strings.</p>
+            <p>Arithmetic Operators</p>
+            <ul>
+                <li>+	(Adds two operands)</li>
+                <li>-	(Subtracts second operand from the first)</li>
+                <li>*	(Multiplies both operands)</li>
+                <li>/	(Divides numerator by de-numerator)</li>
+                <li>**	(Exponentiation operator, raises one operand to the power of other)</li>
+            </ul>
+            <p>Relational Operators</p>
+            <p>Relational operators compare two expressions or values and return a Boolean result.</p>
+            <ul>
+                <li>=	(Checks if the values of two operands are equal or not, if yes then condition becomes true.)</li>
+                <li>!=<br>
+                    &lt;&gt;<br>
+                    ~=<br>                    
+                    (Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.)</li>
+                <li>&gt;	(Checks if the value of left operand is greater than the value of right operand, if yes then condition becomes true.)</li>
+                <li>&lt;	(Checks if the value of left operand is less than the value of right operand, if yes then condition becomes true.)</li>
+                <li>&gt;=	(Checks if the value of left operand is greater than or equal to the value of right operand, if yes then condition becomes true.)</li>
+                <li>&lt;=	(Checks if the value of left operand is less than or equal to the value of right operand, if yes then condition becomes true.)</li>
+            </ul>
+            <p>Comparison Operators</p>
+            <p>Comparison operators are used for comparing one expression to another. The result is always either TRUE, FALSE or NULL.</p>
+            <ul>
+                <li>LIKE	(The LIKE operator compares a character, string, or CLOB value to a pattern and returns TRUE if the value matches the pattern and FALSE if it does not.)</li>
+                <li>BETWEEN	(The BETWEEN operator tests whether a value lies in a specified range. x BETWEEN a AND b means that x &gt;= a and x &lt;= b.)</li>
+                <li>IN	(The IN operator tests set membership. x IN (set) means that x is equal to any member of set.)</li>
+                <li>IS NULL	(The IS NULL operator returns the BOOLEAN value TRUE if its operand is NULL or FALSE if it is not NULL. Comparisons involving NULL values always yield NULL.)</li>
+            </ul>
+            <p>Logical Operators</p>
+            <ul>
+                <li>and	(Called the logical AND operator. If both the operands are true then condition becomes true.)</li>
+                <li>or	(Called the logical OR Operator. If any of the two operands is true then condition becomes true.)</li>
+                <li>not	(Called the logical NOT Operator. Used to reverse the logical state of its operand. If a condition is true then Logical NOT operator will make it false.)</li>
+            </ul>
+            <p>PL/SQL Operator Precedence</p>
+            <p>Operator precedence determines the grouping of terms in an expression. This affects how an expression is evaluated. Certain operators have higher precedence than others; for example, the multiplication operator has higher precedence than the addition operator.
+                For example, x = 7 + 3 * 2; here, x is assigned 13, not 20 because operator * has higher precedence than +, so it first gets multiplied with 3*2 and then adds into 7.
+                Here, operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.
+                The precedence of operators goes as follows: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;, !=, ~=, ^=, IS NULL, LIKE, BETWEEN, IN.</p>
+            <ul>
+                <li>**	(exponentiation)</li>
+                <li>+, -	(identity, negation)</li>
+                <li>*, /	(multiplication, division)</li>
+                <li>+, -, ||	(addition, subtraction, concatenation)</li>
+                <li>comparison	</li>
+                <li>NOT	(logical negation)</li>
+                <li>AND	(conjunction)</li>
+                <li>OR	(inclusion)</li>
+            </ul>
+            <a href="plsqlconstantsandliterals.html" class="next">&lt; Previous Page</a>
+            <a href="plsqlconditions.html" class="next">Next Page &gt;</a>
+        </div>
+    </div>
+    <footer>
+        <div class="head">Explore</div>
+        <div class="links">
+            <a href="#">Courses</a>
+            <a href="#">Exercises</a>
+            <a href="#">Projects</a>
+            <a href="#">Feedback</a>
+        </div>
+        <div class="head">Social Media</div>
+        <div class="media"><ion-icon name="logo-youtube"></ion-icon><ion-icon name="logo-instagram"></ion-icon><ion-icon name="logo-facebook"></ion-icon><ion-icon name="logo-whatsapp"></ion-icon></div>
+        <div>Copyright &copy; 2023-24 . Coding Thoughts . All Rights Reserved</div>
+    </footer>
+<script src="../../js/index.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<!-- <script src="js/light.js"></script> -->
+</body>
+</html>

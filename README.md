@@ -16,5 +16,12 @@
 
 # view
 
+!(Homepage)[./vinayHome.png]
 
+# feature
 
+- knowledge ful
+- responsive
+- theme mode
+- example
+- free learn

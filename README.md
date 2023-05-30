@@ -16,7 +16,7 @@
 
 # view
 
-!(Homepage)[./vinayHome.png]
+![Homepage](./vinayHome.png)
 
 # feature
 

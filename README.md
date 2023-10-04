@@ -6,22 +6,26 @@
 
 # Hello Friends
 
-- 🔭 I’m currently working on Programming Field
-- 🌱 I’m currently learning Codeing Lanugae
+- 🔭 I’m currently working on Java GUI Programming
+- 🌱 I’m currently learning Problem Solving
 - 👯 I’m looking to collaborate on Programming
 - 🤔 I’m looking for help with this (Project)[https://vinaysharma77.github.io/vinaysharma77/]
 - 💬 Ask me about This Project
 
-- ⚡ Fun fact: this is my hard work that you visit
+- ⚡ Fun fact: this website developement play for me
 
-# view
+## view
 
 ![Homepage](./vinayHome.png)
 
-# feature
+## feature
 
-- knowledge ful
-- responsive
-- theme mode
-- example
-- free learn
+- Knowledgable
+- Free Learning
+- Example in Code
+- Responsive
+- Theme Modes
+
+### So why are you waiting for just visit 
+
+# ThoughtsOfCoding Project <https://vinaysharma77.github.io/ThoughtsOfCoding/>
